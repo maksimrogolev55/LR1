@@ -123,6 +123,7 @@ namespace Model
         /// <exception cref="ArgumentException">при неверном вводе</exception>
         private static string Validate(string value, string fieldName)
         {
+            //TODO: {}
             if (string.IsNullOrEmpty(value))
                 throw new ArgumentException(
                     $"{fieldName} не может быть пустым " +
@@ -144,6 +145,7 @@ namespace Model
             return textInfo.ToTitleCase(value.ToLowerInvariant());
         }
 
+        //TODO: XML
         private void EnsureLanguage()
         {
             bool nameIsRussian = Regex.IsMatch(_name, RussianPattern);
@@ -185,6 +187,7 @@ namespace Model
                 ? Gender.Male
                 : Gender.Female;
 
+            //TODO: duplication
             int age = random.Next(0, 123);
 
             string name = gender == Gender.Male
