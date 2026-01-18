@@ -22,6 +22,16 @@ namespace Model
         /// Возраст человека
         /// </summary>
         private int _age;
+        
+        /// <summary>
+        /// Минимальный возраст человека
+        /// </summary>
+        private const int MinAge = 0;
+
+        /// <summary>
+        /// Максимальный возраст человека
+        /// </summary>
+        private const int MaxAge = 123;
 
         /// <summary>
         /// Пол человека
@@ -81,12 +91,10 @@ namespace Model
             get { return _age; }
             set
             {
-                const int minAge = 0;
-                const int maxAge = 123;
-                if (value < minAge || value > maxAge)
+                if (value < MinAge || value > MaxAge)
                 {
                     throw new Exception($"{nameof(Age)} должен быть от " +
-                        $"{minAge} до {maxAge}!");
+                        $"{MinAge} до {MaxAge}!");
                 }
                 _age = value;
             }
@@ -123,11 +131,13 @@ namespace Model
         /// <exception cref="ArgumentException">при неверном вводе</exception>
         private static string Validate(string value, string fieldName)
         {
-            //TODO: {}
+            //TODO: {}+
             if (string.IsNullOrEmpty(value))
+            {
                 throw new ArgumentException(
                     $"{fieldName} не может быть пустым " +
                     $"или состоять только из пробелов.");
+            }
 
             bool isRussian = Regex.IsMatch(value, RussianPattern);
             bool isLatin = Regex.IsMatch(value, LatinPattern);
@@ -145,7 +155,11 @@ namespace Model
             return textInfo.ToTitleCase(value.ToLowerInvariant());
         }
 
-        //TODO: XML
+        //TODO: XML+
+        /// <summary>
+        /// Проверка на совпадение алфавитов имени и фамилии.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">при несовпадении</exception>
         private void EnsureLanguage()
         {
             bool nameIsRussian = Regex.IsMatch(_name, RussianPattern);
@@ -187,8 +201,8 @@ namespace Model
                 ? Gender.Male
                 : Gender.Female;
 
-            //TODO: duplication
-            int age = random.Next(0, 123);
+            //TODO: duplication+
+            int age = random.Next(MinAge, MaxAge);
 
             string name = gender == Gender.Male
                 ? maleNames[random.Next(maleNames.Length)]
