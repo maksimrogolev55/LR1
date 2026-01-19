@@ -56,7 +56,7 @@ namespace Model
         /// <summary>
         /// Создаение нового экземпляра класса Person по умолчанию.
         /// </summary>
-        public Person() : this("Добрыня", "Весельчаков", 18, Gender.Male) { }
+        public Person() { }
 
         /// <summary>
         /// Получение и валидация имени.
