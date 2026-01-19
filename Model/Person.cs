@@ -22,7 +22,7 @@ namespace Model
         /// Возраст человека
         /// </summary>
         private int _age;
-        
+
         /// <summary>
         /// Минимальный возраст человека
         /// </summary>
@@ -66,8 +66,13 @@ namespace Model
             get { return _name; }
             set
             {
-                //TODO: validation
+                //TODO: validation+
                 _name = Validate(value, "Имя");
+                // Проверяем, есть ли уже фамилия
+                if (!string.IsNullOrEmpty(_surname))
+                {
+                    EnsureLanguage();
+                }
             }
         }
 
@@ -80,7 +85,11 @@ namespace Model
             set
             {
                 _surname = Validate(value, "Фамилия");
-                EnsureLanguage();
+                // Проверяем, есть ли уже имя
+                if (!string.IsNullOrEmpty(_name))
+                {
+                    EnsureLanguage();
+                }
             }
         }
 
@@ -161,6 +170,12 @@ namespace Model
         /// <exception cref="InvalidOperationException">при несовпадении</exception>
         private void EnsureLanguage()
         {
+            // Проверяем, что оба поля установлены
+            if (string.IsNullOrEmpty(_name) || string.IsNullOrEmpty(_surname))
+            {
+                return;
+            }
+
             bool nameIsRussian = Regex.IsMatch(_name, RussianPattern);
             bool surnameIsRussian = Regex.IsMatch(_surname, RussianPattern);
 
