@@ -66,6 +66,7 @@ namespace Model
             get { return _name; }
             set
             {
+                //TODO: validation
                 _name = Validate(value, "Имя");
             }
         }
@@ -131,7 +132,6 @@ namespace Model
         /// <exception cref="ArgumentException">при неверном вводе</exception>
         private static string Validate(string value, string fieldName)
         {
-            //TODO: {}+
             if (string.IsNullOrEmpty(value))
             {
                 throw new ArgumentException(
@@ -155,7 +155,6 @@ namespace Model
             return textInfo.ToTitleCase(value.ToLowerInvariant());
         }
 
-        //TODO: XML+
         /// <summary>
         /// Проверка на совпадение алфавитов имени и фамилии.
         /// </summary>
@@ -201,7 +200,6 @@ namespace Model
                 ? Gender.Male
                 : Gender.Female;
 
-            //TODO: duplication+
             int age = random.Next(MinAge, MaxAge);
 
             string name = gender == Gender.Male
