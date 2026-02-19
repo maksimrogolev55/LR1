@@ -66,7 +66,6 @@ namespace Model
             get { return _name; }
             set
             {
-                //TODO: validation+
                 _name = Validate(value, "Имя");
                 // Проверяем, есть ли уже фамилия
                 if (!string.IsNullOrEmpty(_surname))
