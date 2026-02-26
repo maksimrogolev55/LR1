@@ -1,12 +1,11 @@
-﻿using System.Reflection;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace Model
 {
     /// <summary>
     /// Хранение и обработка персональных данных.
     /// </summary>
-    public class Person
+    public abstract class PersonBase
     {
         /// <summary>
         /// Имя человека
@@ -39,13 +38,9 @@ namespace Model
         private Gender _gender;
 
         /// <summary>
-        /// Инициализируем новый экземпляр класса Person.
+        /// Инициализируем новый экземпляр класса PersonBase.
         /// </summary>
-        /// <param name="name">Имя</param>
-        /// <param name="surname">Фамилия</param>
-        /// <param name="age">Возраст</param>
-        /// <param name="gender">Пол</param>
-        public Person(string name, string surname, int age, Gender gender)
+        protected PersonBase(string name, string surname, int age, Gender gender)
         {
             Name = name;
             Surname = surname;
@@ -54,9 +49,9 @@ namespace Model
         }
 
         /// <summary>
-        /// Создаение нового экземпляра класса Person по умолчанию.
+        /// Конструктор по умолчанию
         /// </summary>
-        public Person() { }
+        protected PersonBase() { }
 
         /// <summary>
         /// Получение и валидация имени.
@@ -67,7 +62,6 @@ namespace Model
             set
             {
                 _name = Validate(value, "Имя");
-                // Проверяем, есть ли уже фамилия
                 if (!string.IsNullOrEmpty(_surname))
                 {
                     EnsureLanguage();
@@ -84,7 +78,6 @@ namespace Model
             set
             {
                 _surname = Validate(value, "Фамилия");
-                // Проверяем, есть ли уже имя
                 if (!string.IsNullOrEmpty(_name))
                 {
                     EnsureLanguage();
@@ -93,24 +86,34 @@ namespace Model
         }
 
         /// <summary>
+        /// Минимальный возраст для конкретного типа
+        /// </summary>
+        public virtual int MinAgeForType => MinAge;
+
+        /// <summary>
+        /// Максимальный возраст для конкретного типа
+        /// </summary>
+        public virtual int MaxAgeForType => MaxAge;
+
+        /// <summary>
         /// Получение и валидация возраста.
         /// </summary>
-        public int Age
+        public virtual int Age
         {
             get { return _age; }
             set
             {
-                if (value < MinAge || value > MaxAge)
+                if (value < MinAgeForType || value > MaxAgeForType)
                 {
                     throw new Exception($"{nameof(Age)} должен быть от " +
-                        $"{MinAge} до {MaxAge}!");
+                        $"{MinAgeForType} до {MaxAgeForType}!");
                 }
                 _age = value;
             }
         }
 
         /// <summary>
-        /// Получение и валидация пола.
+        /// Получение пола.
         /// </summary>
         public Gender Gender
         {
@@ -120,6 +123,11 @@ namespace Model
                 _gender = value;
             }
         }
+
+        /// <summary>
+        /// Пол в текстовом виде
+        /// </summary>
+        protected abstract string GenderRole { get; }
 
         /// <summary>
         /// Проверка строки, содержащей только кириллические символы
@@ -132,12 +140,8 @@ namespace Model
         private const string LatinPattern = @"^[a-zA-Z]+(?:-[a-zA-Z]+)?$";
 
         /// <summary>
-        /// Проверяет корректность входной строки по заданным правилам
+        /// Проверяет корректность входной строки
         /// </summary>
-        /// <param name="value">Проверяемая строка</param>
-        /// <param name="fieldName">Название поля</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentException">при неверном вводе</exception>
         private static string Validate(string value, string fieldName)
         {
             if (string.IsNullOrEmpty(value))
@@ -166,10 +170,8 @@ namespace Model
         /// <summary>
         /// Проверка на совпадение алфавитов имени и фамилии.
         /// </summary>
-        /// <exception cref="InvalidOperationException">при несовпадении</exception>
         private void EnsureLanguage()
         {
-            // Проверяем, что оба поля установлены
             if (string.IsNullOrEmpty(_name) || string.IsNullOrEmpty(_surname))
             {
                 return;
@@ -187,44 +189,30 @@ namespace Model
         }
 
         /// <summary>
-        /// Генерирует случайного человека с данными для тестирования.
+        /// Проверяет корректность ввода данных
         /// </summary>
-        /// <returns>Возвращает новый экземпляр класса Person</returns>
-        public static Person GetRandomPerson()
+        protected static string ValidateText(string value, string fieldName)
         {
-            Random random = new Random();
+            if (string.IsNullOrEmpty(value))
+            {
+                throw new ArgumentException(
+                    $"Поле {fieldName} не может быть пустым " +
+                    $"или состоять только из пробелов.");
+            }
+            return value;
+        }
 
-            string[] maleNames = { "Даздраперм", "Баламут", "Велимудр",
-                                   "Пересвет", "Радомир", "Светозар",
-                                   "Тихомир", "Ярополк" };
+        /// <summary>
+        /// Абстрактный метод получения информации
+        /// </summary>
+        public abstract string GetInfo();
 
-            string[] femaleNames = { "Октябрина", "Даздрана", "Искра",
-                                     "Виленина", "Гертруда", "Сталина",
-                                     "Ревмира", "Люция" };
-
-            string[] surnamesMale = { "Весельчаков", "Хохотушкин", "Пузиков",
-                                      "Картошкин", "Борщов", "Пельменев",
-                                      "Самоваров", "Балалайкин" };
-
-            string[] surnamesFemale = { "Весельчакова", "Хохотушкина", "Пузикова",
-                                        "Картошкина", "Борщова", "Пельменева",
-                                        "Самоварова", "Балалайкина" };
-
-            var gender = random.Next(2) == 0
-                ? Gender.Male
-                : Gender.Female;
-
-            int age = random.Next(MinAge, MaxAge);
-
-            string name = gender == Gender.Male
-                ? maleNames[random.Next(maleNames.Length)]
-                : femaleNames[random.Next(femaleNames.Length)];
-
-            string surname = gender == Gender.Male
-                ? surnamesMale[random.Next(surnamesMale.Length)]
-                : surnamesFemale[random.Next(surnamesFemale.Length)];
-
-            return new Person(name, surname, age, gender);
+        /// <summary>
+        /// Формирование строки с базовой информацией
+        /// </summary>
+        protected string GetBasicInfo()
+        {
+            return $"{Name} {Surname}\nПол: {GenderRole}, возраст: {Age}";
         }
     }
 }
