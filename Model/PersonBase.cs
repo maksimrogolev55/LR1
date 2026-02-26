@@ -112,18 +112,11 @@ namespace Model
             }
         }
 
-        //TODO: autoproperty
+        //TODO: autoproperty+
         /// <summary>
         /// Получение пола.
         /// </summary>
-        public Gender Gender
-        {
-            get { return _gender; }
-            set
-            {
-                _gender = value;
-            }
-        }
+        public Gender Gender { get; set; }
 
         /// <summary>
         /// Пол в текстовом виде

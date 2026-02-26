@@ -8,49 +8,54 @@ namespace LR1
     /// </summary>
     public class Program
     {
-        //TODO: XML
+        //TODO: XML+
+        /// <summary>
+        /// Демонстрация работы с классами Adult и Child.
+        /// </summary>
         public static void Main(string[] args)
         {
             PersonList list = new PersonList();
 
             Console.WriteLine("Генерация начальных данных");
 
-            // Добавляем 7 случайных людей (взрослых и детей)
             for (int i = 0; i < 7; i++)
             {
                 list.Add(PersonGenerator.GetRandomPerson());
             }
 
-            // Выводим начальное состояние
             Pause("показать начальное состояние");
             PrintPersonList(list, "Список людей");
 
-            // Определяем тип четвертого человека
             Pause("определить тип четвертого человека");
-            //TODO: magic (to const)
-            //TODO: polymorphism
-            if (list.Count() > 3)
+            //TODO: magic (to const)+
+            int FourthPersonIndex = 3;
+            //TODO: polymorphism+
+            if (list.Count() > FourthPersonIndex)
             {
-                PersonBase fourthPerson = list.GetByIndex(3);
+                PersonBase fourthPerson = list.GetByIndex(FourthPersonIndex);
                 string typeName = fourthPerson is Adult ? "Взрослый" : "Ребенок";
                 Console.WriteLine($"Тип четвертого человека: {typeName}");
 
-                // Демонстрируем МЕТОД, присущий конкретному классу
                 switch (fourthPerson)
                 {
-                    //TODO: {}
+                    //TODO: {}+
                     case Adult adult:
-                        Console.WriteLine($"Демонстрация метода: " +
-                            $"{adult.GetWorkInfo()}\n");
-                        break;
+                        {
+                            Console.WriteLine($"Демонстрация метода: " +
+                                $"{adult.GetWorkInfo()}\n");
+                            break;
+                        }
                     case Child child:
-                        Console.WriteLine($"Демонстрация метода: " +
-                            $"{child.GetStudyInfo()}\n");
-                        break;
+                        {
+                            Console.WriteLine($"Демонстрация метода: " +
+                                $"{child.GetStudyInfo()}\n");
+                            break;
+                        }
                 }
             }
-            //TODO: RSDN
-            Console.WriteLine("\nРабота завершена. Нажмите любую клавишу для выхода...");
+            //TODO: RSDN+
+            Console.WriteLine(
+                "\nРабота завершена. Нажмите любую клавишу для выхода...");
             Console.ReadKey();
         }
 

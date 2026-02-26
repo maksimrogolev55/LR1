@@ -7,7 +7,10 @@ namespace Model
     /// </summary>
     public static class PersonGenerator
     {
-        //TODO: XML
+        //TODO: XML+
+        /// <summary>
+        /// Генератор случайных чисел
+        /// </summary>
         private static Random random = new Random();
 
         /// <summary>
@@ -15,15 +18,29 @@ namespace Model
         /// </summary>
         public static void FillRandomPerson(PersonBase person, Gender? gender = null)
         {
-            string[] maleNames = { "Алексей", "Дмитрий", "Иван", "Сергей",
-                                   "Андрей", "Максим", "Егор", "Артём" };
-            string[] femaleNames = { "Анна", "Елена", "Мария", "Ольга",
-                //TODO: RSDN
-                                     "Татьяна", "Наталья", "Дарья", "Полина" };
-            string[] surnamesMale = { "Иванов", "Смирнов", "Кузнецов", "Попов",
-                                      "Волков", "Соколов", "Лебедев", "Морозов" };
-            string[] surnamesFemale = { "Иванова", "Смирнова", "Кузнецова", "Попова",
-                                        "Волкова", "Соколова", "Лебедева", "Морозова" };
+            string[] maleNames =
+            {
+                "Алексей", "Дмитрий", "Иван", "Сергей",
+                "Андрей", "Максим", "Егор", "Артём"
+            };
+
+            string[] femaleNames =
+            {
+                "Анна", "Елена", "Мария", "Ольга",
+                "Татьяна", "Наталья", "Дарья", "Полина"
+            };
+            //TODO: RSDN+
+            string[] surnamesMale =
+            {
+                "Иванов", "Смирнов", "Кузнецов", "Попов",
+                "Волков", "Соколов", "Лебедев", "Морозов"
+            };
+            
+            string[] surnamesFemale =
+            {
+                "Иванова", "Смирнова", "Кузнецова", "Попова",
+                "Волкова", "Соколова", "Лебедева", "Морозова"
+            };
 
             person.Gender = gender ?? (Gender)random.Next(2);
 
@@ -51,14 +68,14 @@ namespace Model
                                    "Ростелеком", null, null };
 
             string workPlace = workPlaces[random.Next(workPlaces.Length)];
-            //TODO: RSDN
-            string passport = $"{random.Next(1000, 10000)} {random.Next(100000, 1000000)}";
+            //TODO: RSDN+
+            string passport = $"{random.Next(1000, 10000)} " +
+                              $"{random.Next(100000, 1000000)}";
 
             adult.Age = age;
             adult.Passport = passport;
             adult.Workplace = workPlace;
 
-            // 50% шанс создать партнёра
             if (random.Next(2) == 0)
             {
                 Gender partnerGender = adult.Gender == Gender.Male
@@ -75,9 +92,15 @@ namespace Model
         {
             int age = random.Next(1, 17);
 
-            //TODO: RSDN
-            string[] studyPlaces = { "Школа №31", "Детский сад №5", "Гимназия №2",
-                                    "Лицей №3", null };
+            //TODO: RSDN+
+            string[] studyPlaces = 
+            { 
+                "Школа №31",
+                "Детский сад №5",
+                "Гимназия №2",
+                "Лицей №3",
+                null
+            };
 
             string studyPlace = studyPlaces[random.Next(studyPlaces.Length)];
 
@@ -94,13 +117,17 @@ namespace Model
 
             switch (child.Gender)
             {
-                //TODO: {}
+                //TODO: {}+
                 case Gender.Male:
-                    child.Surname = father.Surname;
-                    break;
+                    {
+                        child.Surname = father.Surname;
+                        break;
+                    }
                 case Gender.Female:
-                    child.Surname = mother.Surname;
-                    break;
+                    {
+                        child.Surname = mother.Surname;
+                        break;
+                    }
             }
         }
 
