@@ -8,6 +8,7 @@ namespace LR1
     /// </summary>
     public class Program
     {
+        //TODO: XML
         public static void Main(string[] args)
         {
             PersonList list = new PersonList();
@@ -26,6 +27,8 @@ namespace LR1
 
             // Определяем тип четвертого человека
             Pause("определить тип четвертого человека");
+            //TODO: magic (to const)
+            //TODO: polymorphism
             if (list.Count() > 3)
             {
                 PersonBase fourthPerson = list.GetByIndex(3);
@@ -35,6 +38,7 @@ namespace LR1
                 // Демонстрируем МЕТОД, присущий конкретному классу
                 switch (fourthPerson)
                 {
+                    //TODO: {}
                     case Adult adult:
                         Console.WriteLine($"Демонстрация метода: " +
                             $"{adult.GetWorkInfo()}\n");
@@ -45,7 +49,7 @@ namespace LR1
                         break;
                 }
             }
-
+            //TODO: RSDN
             Console.WriteLine("\nРабота завершена. Нажмите любую клавишу для выхода...");
             Console.ReadKey();
         }

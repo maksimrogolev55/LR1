@@ -112,6 +112,7 @@ namespace Model
             }
         }
 
+        //TODO: autoproperty
         /// <summary>
         /// Получение пола.
         /// </summary>

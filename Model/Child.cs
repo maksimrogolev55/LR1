@@ -152,6 +152,7 @@
         /// </summary>
         public string GetParentsInfo()
         {
+            //TODO: RSDN
             string motherInfo = Mother != null ? $"{Mother.Name} {Mother.Surname}" : "не указана";
             string fatherInfo = Father != null ? $"{Father.Name} {Father.Surname}" : "не указан";
             return $"Родители: мать - {motherInfo}, отец - {fatherInfo}";

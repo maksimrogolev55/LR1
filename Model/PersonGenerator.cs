@@ -7,6 +7,7 @@ namespace Model
     /// </summary>
     public static class PersonGenerator
     {
+        //TODO: XML
         private static Random random = new Random();
 
         /// <summary>
@@ -17,6 +18,7 @@ namespace Model
             string[] maleNames = { "Алексей", "Дмитрий", "Иван", "Сергей",
                                    "Андрей", "Максим", "Егор", "Артём" };
             string[] femaleNames = { "Анна", "Елена", "Мария", "Ольга",
+                //TODO: RSDN
                                      "Татьяна", "Наталья", "Дарья", "Полина" };
             string[] surnamesMale = { "Иванов", "Смирнов", "Кузнецов", "Попов",
                                       "Волков", "Соколов", "Лебедев", "Морозов" };
@@ -49,6 +51,7 @@ namespace Model
                                    "Ростелеком", null, null };
 
             string workPlace = workPlaces[random.Next(workPlaces.Length)];
+            //TODO: RSDN
             string passport = $"{random.Next(1000, 10000)} {random.Next(100000, 1000000)}";
 
             adult.Age = age;
@@ -72,6 +75,7 @@ namespace Model
         {
             int age = random.Next(1, 17);
 
+            //TODO: RSDN
             string[] studyPlaces = { "Школа №31", "Детский сад №5", "Гимназия №2",
                                     "Лицей №3", null };
 
@@ -90,6 +94,7 @@ namespace Model
 
             switch (child.Gender)
             {
+                //TODO: {}
                 case Gender.Male:
                     child.Surname = father.Surname;
                     break;
