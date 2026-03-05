@@ -152,7 +152,6 @@
         /// </summary>
         public string GetParentsInfo()
         {
-            //TODO: RSDN+
             string motherInfo = Mother != null
                 ? $"{Mother.Name} {Mother.Surname}"
                 : "не указана";

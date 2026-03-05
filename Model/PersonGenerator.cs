@@ -7,7 +7,7 @@ namespace Model
     /// </summary>
     public static class PersonGenerator
     {
-        //TODO: XML+
+        //TODO: RSDN
         /// <summary>
         /// Генератор случайных чисел
         /// </summary>
@@ -16,7 +16,8 @@ namespace Model
         /// <summary>
         /// Заполняет базовые данные для случайного человека
         /// </summary>
-        public static void FillRandomPerson(PersonBase person, Gender? gender = null)
+        public static void FillRandomPerson(PersonBase person, 
+            Gender? gender = null)
         {
             string[] maleNames =
             {
@@ -29,7 +30,7 @@ namespace Model
                 "Анна", "Елена", "Мария", "Ольга",
                 "Татьяна", "Наталья", "Дарья", "Полина"
             };
-            //TODO: RSDN+
+
             string[] surnamesMale =
             {
                 "Иванов", "Смирнов", "Кузнецов", "Попов",
@@ -46,6 +47,7 @@ namespace Model
 
             switch (person.Gender)
             {
+                //TODO: {}
                 case Gender.Male:
                     person.Name = maleNames[random.Next(maleNames.Length)];
                     person.Surname = surnamesMale[random.Next(surnamesMale.Length)];
@@ -68,7 +70,6 @@ namespace Model
                                    "Ростелеком", null, null };
 
             string workPlace = workPlaces[random.Next(workPlaces.Length)];
-            //TODO: RSDN+
             string passport = $"{random.Next(1000, 10000)} " +
                               $"{random.Next(100000, 1000000)}";
 
@@ -92,7 +93,6 @@ namespace Model
         {
             int age = random.Next(1, 17);
 
-            //TODO: RSDN+
             string[] studyPlaces = 
             { 
                 "Школа №31",
@@ -117,7 +117,7 @@ namespace Model
 
             switch (child.Gender)
             {
-                //TODO: {}+
+                //TODO: отступы
                 case Gender.Male:
                     {
                         child.Surname = father.Surname;

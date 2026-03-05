@@ -8,7 +8,6 @@ namespace LR1
     /// </summary>
     public class Program
     {
-        //TODO: XML+
         /// <summary>
         /// Демонстрация работы с классами Adult и Child.
         /// </summary>
@@ -27,18 +26,18 @@ namespace LR1
             PrintPersonList(list, "Список людей");
 
             Pause("определить тип четвертого человека");
-            //TODO: magic (to const)+
+            //TODO: RSDN, to const
             int FourthPersonIndex = 3;
-            //TODO: polymorphism+
             if (list.Count() > FourthPersonIndex)
             {
                 PersonBase fourthPerson = list.GetByIndex(FourthPersonIndex);
-                string typeName = fourthPerson is Adult ? "Взрослый" : "Ребенок";
+                string typeName = fourthPerson is Adult 
+                    ? "Взрослый" : "Ребенок";
                 Console.WriteLine($"Тип четвертого человека: {typeName}");
 
                 switch (fourthPerson)
                 {
-                    //TODO: {}+
+                    //TODO: отступы
                     case Adult adult:
                         {
                             Console.WriteLine($"Демонстрация метода: " +
@@ -53,7 +52,6 @@ namespace LR1
                         }
                 }
             }
-            //TODO: RSDN+
             Console.WriteLine(
                 "\nРабота завершена. Нажмите любую клавишу для выхода...");
             Console.ReadKey();
