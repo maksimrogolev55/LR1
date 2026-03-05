@@ -9,6 +9,10 @@ namespace LR1
     public class Program
     {
         /// <summary>
+        /// Индекс четвертого человека в списке (нумерация с 0).
+        /// </summary>
+        private const int FourthPersonIndex = 3;
+        /// <summary>
         /// Демонстрация работы с классами Adult и Child.
         /// </summary>
         public static void Main(string[] args)
@@ -26,8 +30,7 @@ namespace LR1
             PrintPersonList(list, "Список людей");
 
             Pause("определить тип четвертого человека");
-            //TODO: RSDN, to const
-            int FourthPersonIndex = 3;
+            //TODO: RSDN, to const+
             if (list.Count() > FourthPersonIndex)
             {
                 PersonBase fourthPerson = list.GetByIndex(FourthPersonIndex);
@@ -37,19 +40,19 @@ namespace LR1
 
                 switch (fourthPerson)
                 {
-                    //TODO: отступы
+                    //TODO: отступы+
                     case Adult adult:
-                        {
-                            Console.WriteLine($"Демонстрация метода: " +
-                                $"{adult.GetWorkInfo()}\n");
-                            break;
-                        }
+                    {
+                        Console.WriteLine($"Демонстрация метода: " +
+                            $"{adult.GetWorkInfo()}\n");
+                        break;
+                    }
                     case Child child:
-                        {
-                            Console.WriteLine($"Демонстрация метода: " +
-                                $"{child.GetStudyInfo()}\n");
-                            break;
-                        }
+                    {
+                        Console.WriteLine($"Демонстрация метода: " +
+                            $"{child.GetStudyInfo()}\n");
+                        break;
+                    }
                 }
             }
             Console.WriteLine(

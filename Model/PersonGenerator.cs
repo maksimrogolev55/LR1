@@ -7,11 +7,11 @@ namespace Model
     /// </summary>
     public static class PersonGenerator
     {
-        //TODO: RSDN
+        //TODO: RSDN+
         /// <summary>
         /// Генератор случайных чисел
         /// </summary>
-        private static Random random = new Random();
+        private static Random _random = new Random();
 
         /// <summary>
         /// Заполняет базовые данные для случайного человека
@@ -43,19 +43,23 @@ namespace Model
                 "Волкова", "Соколова", "Лебедева", "Морозова"
             };
 
-            person.Gender = gender ?? (Gender)random.Next(2);
+            person.Gender = gender ?? (Gender)_random.Next(2);
 
             switch (person.Gender)
             {
-                //TODO: {}
+                //TODO: RSDN+
                 case Gender.Male:
-                    person.Name = maleNames[random.Next(maleNames.Length)];
-                    person.Surname = surnamesMale[random.Next(surnamesMale.Length)];
+                {
+                    person.Name = maleNames[_random.Next(maleNames.Length)];
+                    person.Surname = surnamesMale[_random.Next(surnamesMale.Length)];
                     break;
+                }
                 case Gender.Female:
-                    person.Name = femaleNames[random.Next(femaleNames.Length)];
-                    person.Surname = surnamesFemale[random.Next(surnamesFemale.Length)];
+                {
+                    person.Name = femaleNames[_random.Next(femaleNames.Length)];
+                    person.Surname = surnamesFemale[Random.Shared.Next(surnamesFemale.Length)];
                     break;
+                }
             }
         }
 
@@ -64,20 +68,20 @@ namespace Model
         /// </summary>
         public static void FillAdult(Adult adult)
         {
-            int age = random.Next(18, 70);
+            int age = _random.Next(18, 70);
 
             string[] workPlaces = { "Газпром", "Яндекс", "Сбербанк", "РЖД",
                                    "Ростелеком", null, null };
 
-            string workPlace = workPlaces[random.Next(workPlaces.Length)];
-            string passport = $"{random.Next(1000, 10000)} " +
-                              $"{random.Next(100000, 1000000)}";
+            string workPlace = workPlaces[_random.Next(workPlaces.Length)];
+            string passport = $"{_random.Next(1000, 10000)} " +
+                              $"{_random.Next(100000, 1000000)}";
 
             adult.Age = age;
             adult.Passport = passport;
             adult.Workplace = workPlace;
 
-            if (random.Next(2) == 0)
+            if (_random.Next(2) == 0)
             {
                 Gender partnerGender = adult.Gender == Gender.Male
                     ? Gender.Female
@@ -91,7 +95,7 @@ namespace Model
         /// </summary>
         public static void FillChild(Child child)
         {
-            int age = random.Next(1, 17);
+            int age = _random.Next(1, 17);
 
             string[] studyPlaces = 
             { 
@@ -102,7 +106,7 @@ namespace Model
                 null
             };
 
-            string studyPlace = studyPlaces[random.Next(studyPlaces.Length)];
+            string studyPlace = studyPlaces[_random.Next(studyPlaces.Length)];
 
             child.Age = age;
             child.Study = studyPlace;
@@ -117,17 +121,17 @@ namespace Model
 
             switch (child.Gender)
             {
-                //TODO: отступы
+                //TODO: отступы+
                 case Gender.Male:
-                    {
-                        child.Surname = father.Surname;
-                        break;
-                    }
+                {
+                    child.Surname = father.Surname;
+                    break;
+                }
                 case Gender.Female:
-                    {
-                        child.Surname = mother.Surname;
-                        break;
-                    }
+                {
+                    child.Surname = mother.Surname;
+                    break;
+                }
             }
         }
 
@@ -158,7 +162,7 @@ namespace Model
         /// </summary>
         public static PersonBase GetRandomPerson()
         {
-            return random.Next(2) == 0
+            return _random.Next(2) == 0
                 ? GetRandomAdult()
                 : GetRandomChild();
         }
