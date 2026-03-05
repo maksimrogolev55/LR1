@@ -12,6 +12,7 @@ namespace LR1
         /// Индекс четвертого человека в списке (нумерация с 0).
         /// </summary>
         private const int _fourthPersonIndex = 3;
+
         /// <summary>
         /// Демонстрация работы с классами Adult и Child.
         /// </summary>
@@ -30,7 +31,6 @@ namespace LR1
             PrintPersonList(list, "Список людей");
 
             Pause("определить тип четвертого человека");
-            //TODO: RSDN, to const+
             if (list.Count() > _fourthPersonIndex)
             {
                 PersonBase fourthPerson = list.GetByIndex(_fourthPersonIndex);
@@ -40,7 +40,6 @@ namespace LR1
 
                 switch (fourthPerson)
                 {
-                    //TODO: отступы+
                     case Adult adult:
                     {
                         Console.WriteLine($"Демонстрация метода: " +

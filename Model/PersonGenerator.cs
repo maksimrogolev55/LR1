@@ -7,7 +7,6 @@ namespace Model
     /// </summary>
     public static class PersonGenerator
     {
-        //TODO: RSDN+
         /// <summary>
         /// Генератор случайных чисел
         /// </summary>
@@ -47,7 +46,6 @@ namespace Model
 
             switch (person.Gender)
             {
-                //TODO: RSDN+
                 case Gender.Male:
                 {
                     person.Name = maleNames[_random.Next(maleNames.Length)];
@@ -121,7 +119,6 @@ namespace Model
 
             switch (child.Gender)
             {
-                //TODO: отступы+
                 case Gender.Male:
                 {
                     child.Surname = father.Surname;
