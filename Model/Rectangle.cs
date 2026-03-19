@@ -3,7 +3,7 @@
     /// <summary>
     /// Класс, представляющий прямоугольник.
     /// </summary>
-    public class Rectangle : Shape
+    public class Rectangle : ShapeBase
     {
         /// <summary>
         /// Ширина прямоугольника.
@@ -15,13 +15,7 @@
         /// </summary>
         private double _height;
 
-        //TODO: remove
-        /// <summary>
-        /// Конструктор по умолчанию.
-        /// </summary>
-        public Rectangle()
-        {
-        }
+        //TODO: remove+
 
         /// <summary>
         /// Инициализирует новый экземпляр класса Rectangle.

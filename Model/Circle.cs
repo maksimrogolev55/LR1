@@ -5,19 +5,12 @@ namespace Model
     /// <summary>
     /// Класс, представляющий круг.
     /// </summary>
-    public class Circle : Shape
+    public class Circle : ShapeBase
     {
         /// <summary>
         /// Радиус круга.
         /// </summary>
         private double _radius;
-
-        /// <summary>
-        /// Конструктор по умолчанию.
-        /// </summary>
-        public Circle()
-        {
-        }
 
         /// <summary>
         /// Инициализирует новый экземпляр класса Circle.

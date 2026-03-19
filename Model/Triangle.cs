@@ -5,7 +5,7 @@ namespace Model
     /// <summary>
     /// Класс, представляющий треугольник.
     /// </summary>
-    public class Triangle : Shape
+    public class Triangle : ShapeBase
     {
         /// <summary>
         /// Сторона A.
@@ -21,14 +21,6 @@ namespace Model
         /// Сторона C.
         /// </summary>
         private double _sideC;
-
-
-        /// <summary>
-        /// Конструктор по умолчанию.
-        /// </summary>
-        public Triangle()
-        {
-        }
 
         /// <summary>
         /// Инициализирует новый экземпляр класса Triangle.
@@ -58,7 +50,14 @@ namespace Model
             ValidatePositive(_sideA, nameof(SideA));
             ValidatePositive(_sideB, nameof(SideB));
             ValidatePositive(_sideC, nameof(SideC));
-            ValidateTriangleSides(_sideA, _sideB, _sideC);
+
+            if (_sideA + _sideB <= _sideC ||
+                _sideA + _sideC <= _sideB ||
+                _sideB + _sideC <= _sideA)
+            {
+                throw new ArgumentException(
+                    $"Стороны ({_sideA:F2}, {_sideB:F2}, {_sideC:F2}) не образуют треугольник.");
+            }
         }
 
         /// <summary>
@@ -124,10 +123,10 @@ namespace Model
         /// <returns>Площадь треугольника.</returns>
         public override double CalculateArea()
         {
-            //TODO: RSDN
-            double p = (_sideA + _sideB + _sideC) / 2.0;
+            //TODO: RSDN+
+            double SemiPerimeter = (_sideA + _sideB + _sideC) / 2.0;
             double area = Math.Sqrt(
-                p * (p - _sideA) * (p - _sideB) * (p - _sideC));
+                SemiPerimeter * (SemiPerimeter - _sideA) * (SemiPerimeter - _sideB) * (SemiPerimeter - _sideC));
             return area;
         }
 
