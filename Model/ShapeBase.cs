@@ -14,6 +14,10 @@ namespace Model
         /// </summary>
         protected const double MinValue = 1e-10;
 
+        /// <summary>
+        /// Формат вывода чисел с плавающей точкой.
+        /// </summary>
+        protected const string DoubleFormat = "F2";
 
         /// <summary>
         /// Проверяет, что значение положительное.

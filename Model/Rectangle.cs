@@ -82,10 +82,10 @@
         /// <returns>Строка с информацией о прямоугольнике.</returns>
         public override string GetInfo()
         {
-            //TODO: magic (to const)
-            return $"Прямоугольник: ширина = {_width:F2}, " +
-                   $"высота = {_height:F2}, " +
-                   $"площадь = {CalculateArea():F2}";
+            //TODO: magic (to const)+
+            return $"Прямоугольник: ширина = {_width.ToString(DoubleFormat)}, " +
+                   $"высота = {_height.ToString(DoubleFormat)}, " +
+                   $"площадь = {CalculateArea().ToString(DoubleFormat)}";
         }
     }
 }

@@ -64,15 +64,19 @@ namespace Model
 
             switch (type)
             {
-                //TODO: {}
+                //TODO: {}+
                 case 0:
-                    return GetRandomCircle();
-
+                { 
+                    return GetRandomCircle(); 
+                }
                 case 1:
-                    return GetRandomRectangle();
-
+                {
+                    return GetRandomRectangle(); 
+                }
                 default:
+                {
                     return GetRandomTriangle();
+                }
             }
         }
     }

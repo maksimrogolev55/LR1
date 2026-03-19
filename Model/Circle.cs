@@ -58,9 +58,9 @@ namespace Model
         /// <returns>Строка с информацией о круге.</returns>
         public override string GetInfo()
         {
-            //TODO: magic (to const)
-            return $"Круг: радиус = {_radius:F2}, " +
-                   $"площадь = {CalculateArea():F2}";
+            //TODO: magic (to const)+
+            return $"Круг: радиус = {_radius.ToString(DoubleFormat)}, " +
+                   $"площадь = {CalculateArea().ToString(DoubleFormat)}";
         }
     }
 }

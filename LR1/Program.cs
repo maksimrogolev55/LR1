@@ -68,9 +68,7 @@ namespace ConsoleLoader
                 Console.WriteLine($"  {shape.GetInfo()}");
             }
 
-
-            //TODO: remove
-            Console.WriteLine("\n--- Работа через ссылку на базовый класс ---");
+            //TODO: remove+
 
             ShapeBase shape1 = new Circle(10);
             Console.WriteLine($"shape1: {shape1.GetInfo()}");
@@ -180,27 +178,21 @@ namespace ConsoleLoader
                         case 3:
                         {
                             Console.WriteLine("\nВведите стороны треугольника:");
-                                //TODO: remove
+                                //TODO: remove+
                             double a = ReadPositiveDouble("Сторона A: ");
                             double b = ReadPositiveDouble("Сторона B: ");
                             double c = ReadPositiveDouble("Сторона C: ");
-
-                            if (a + b <= c || a + c <= b || b + c <= a)
-                            {
-                                Console.WriteLine("Ошибка: стороны не образуют треугольник.");
-                                continue;
-                            }
 
                             return new Triangle(a, b, c);
                         }
 
                         default:
-                            //TODO: remove
-                            throw new Exception("Неверный выбор.");
+                            //TODO: remove+
+                            continue;
                     }
                 }
-                //TODO: refactor
-                catch (Exception ex)
+                //TODO: refactor+
+                catch (ArgumentException ex)
                 {
                     Console.WriteLine($"Ошибка: {ex.Message} Попробуйте снова.");
                 }
