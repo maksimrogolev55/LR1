@@ -2,6 +2,7 @@
 
 namespace Model
 {
+    //TODO: refactor
     /// <summary>
     /// Представляет статические методы для генерации
     /// случайных геометрических фигур.
@@ -154,6 +155,7 @@ namespace Model
 
                     switch (choice)
                     {
+                        //TOOD: отступы
                         case 1:
                             {
                                 double radius = ReadPositiveDouble(
@@ -179,6 +181,7 @@ namespace Model
                                 double b = ReadPositiveDouble("Сторона B: ");
                                 double c = ReadPositiveDouble("Сторона C: ");
 
+                                //TODO: refactor
                                 if (a + b <= c
                                     || a + c <= b
                                     || b + c <= a)

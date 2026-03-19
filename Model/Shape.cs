@@ -2,6 +2,7 @@
 
 namespace Model
 {
+    //TODO: RSDN
     /// <summary>
     /// Абстрактный базовый класс для всех
     /// геометрических фигур.
@@ -13,6 +14,7 @@ namespace Model
         /// параметров фигуры.
         /// </summary>
         protected const double MinValue = 1e-10;
+
 
         /// <summary>
         /// Проверяет, что значение положительное.
@@ -34,6 +36,7 @@ namespace Model
             }
         }
 
+        //TODO: remove
         /// <summary>
         /// Проверяет, что три стороны могут образовать треугольник.
         /// </summary>
@@ -68,6 +71,7 @@ namespace Model
         /// <returns>Строка с информацией о фигуре.</returns>
         public abstract string GetInfo();
 
+        //TODO: remove
         /// <summary>
         /// Статический метод для генерации случайной фигуры.
         /// </summary>
@@ -91,6 +95,7 @@ namespace Model
             }
         }
 
+        //TODO: remove
         /// <summary>
         /// Генерирует случайный треугольник с валидными сторонами.
         /// </summary>
@@ -104,6 +109,7 @@ namespace Model
 
             do
             {
+                //TODO: refactor
                 a = random.NextDouble() * 8 + 2;
                 b = random.NextDouble() * 8 + 2;
                 c = random.NextDouble() * 8 + 2;

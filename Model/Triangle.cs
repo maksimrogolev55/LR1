@@ -22,6 +22,7 @@ namespace Model
         /// </summary>
         private double _sideC;
 
+
         /// <summary>
         /// Конструктор по умолчанию.
         /// </summary>
@@ -123,6 +124,7 @@ namespace Model
         /// <returns>Площадь треугольника.</returns>
         public override double CalculateArea()
         {
+            //TODO: RSDN
             double p = (_sideA + _sideB + _sideC) / 2.0;
             double area = Math.Sqrt(
                 p * (p - _sideA) * (p - _sideB) * (p - _sideC));

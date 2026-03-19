@@ -15,6 +15,7 @@
         /// </summary>
         private double _height;
 
+        //TODO: remove
         /// <summary>
         /// Конструктор по умолчанию.
         /// </summary>

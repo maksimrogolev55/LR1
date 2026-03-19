@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Model
 {
+    //TODO: remove
     /// <summary>
     /// Представляет список геометрических фигур.
     /// </summary>
