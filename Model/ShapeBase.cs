@@ -2,7 +2,6 @@
 
 namespace Model
 {
-    //TODO: RSDN+
     /// <summary>
     /// Абстрактный базовый класс для всех
     /// геометрических фигур.
@@ -36,7 +35,6 @@ namespace Model
             }
         }
 
-        //TODO: remove+
         /// <summary>
         /// Абстрактный метод вычисления площади.
         /// </summary>
@@ -48,7 +46,5 @@ namespace Model
         /// </summary>
         /// <returns>Строка с информацией о фигуре.</returns>
         public abstract string GetInfo();
-        //TODO: remove+
-        //TODO: remove+
     }
 }

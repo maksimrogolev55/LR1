@@ -50,11 +50,12 @@ namespace ConsoleLoader
 
             Console.WriteLine("\n--- Демонстрация полиморфизма ---");
 
-            List<ShapeBase> shapes = new List<ShapeBase>();
-
-            shapes.Add(new Circle(3));
-            shapes.Add(new Rectangle(2, 8));
-            shapes.Add(new Triangle(5, 6, 7));
+            List<ShapeBase> shapes = 
+                [
+                    new Circle(3), 
+                    new Rectangle(2, 8), 
+                    new Triangle(5, 6, 7)
+                ];
 
             for (int i = 0; i < 4; i++)
             {
@@ -67,6 +68,8 @@ namespace ConsoleLoader
                 Console.WriteLine($"  {shape.GetInfo()}");
             }
 
+
+            //TODO: remove
             Console.WriteLine("\n--- Работа через ссылку на базовый класс ---");
 
             ShapeBase shape1 = new Circle(10);
@@ -177,7 +180,7 @@ namespace ConsoleLoader
                         case 3:
                         {
                             Console.WriteLine("\nВведите стороны треугольника:");
-
+                                //TODO: remove
                             double a = ReadPositiveDouble("Сторона A: ");
                             double b = ReadPositiveDouble("Сторона B: ");
                             double c = ReadPositiveDouble("Сторона C: ");
@@ -192,9 +195,11 @@ namespace ConsoleLoader
                         }
 
                         default:
+                            //TODO: remove
                             throw new Exception("Неверный выбор.");
                     }
                 }
+                //TODO: refactor
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Ошибка: {ex.Message} Попробуйте снова.");

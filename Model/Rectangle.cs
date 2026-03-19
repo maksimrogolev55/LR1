@@ -15,8 +15,6 @@
         /// </summary>
         private double _height;
 
-        //TODO: remove+
-
         /// <summary>
         /// Инициализирует новый экземпляр класса Rectangle.
         /// </summary>
@@ -84,6 +82,7 @@
         /// <returns>Строка с информацией о прямоугольнике.</returns>
         public override string GetInfo()
         {
+            //TODO: magic (to const)
             return $"Прямоугольник: ширина = {_width:F2}, " +
                    $"высота = {_height:F2}, " +
                    $"площадь = {CalculateArea():F2}";

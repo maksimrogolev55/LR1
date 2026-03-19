@@ -2,7 +2,6 @@
 
 namespace Model
 {
-    //TODO: refactor+
     /// <summary>
     /// Представляет статические методы для генерации
     /// случайных геометрических фигур.
@@ -65,6 +64,7 @@ namespace Model
 
             switch (type)
             {
+                //TODO: {}
                 case 0:
                     return GetRandomCircle();
 

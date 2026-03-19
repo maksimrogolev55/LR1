@@ -56,6 +56,7 @@ namespace Model
                 _sideB + _sideC <= _sideA)
             {
                 throw new ArgumentException(
+                    //TODO: magic (to const)
                     $"Стороны ({_sideA:F2}, {_sideB:F2}, {_sideC:F2}) не образуют треугольник.");
             }
         }
@@ -123,9 +124,10 @@ namespace Model
         /// <returns>Площадь треугольника.</returns>
         public override double CalculateArea()
         {
-            //TODO: RSDN+
+            //TODO: RSDN
             double SemiPerimeter = (_sideA + _sideB + _sideC) / 2.0;
             double area = Math.Sqrt(
+                //TODO: RSDN
                 SemiPerimeter * (SemiPerimeter - _sideA) * (SemiPerimeter - _sideB) * (SemiPerimeter - _sideC));
             return area;
         }
@@ -136,6 +138,7 @@ namespace Model
         /// <returns>Строка с информацией о треугольнике.</returns>
         public override string GetInfo()
         {
+            //TODO: magic (to const)
             return $"Треугольник: стороны = " +
                    $"{_sideA:F2}, {_sideB:F2}, {_sideC:F2}, " +
                    $"площадь = {CalculateArea():F2}";
