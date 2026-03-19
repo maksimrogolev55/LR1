@@ -56,8 +56,8 @@ namespace Model
                 _sideB + _sideC <= _sideA)
             {
                 throw new ArgumentException(
-                    //TODO: magic (to const)+
-                    $"Стороны ({_sideA:DoubleFormat}, {_sideB:DoubleFormat}, {_sideC:DoubleFormat}) не образуют треугольник.");
+                    $"Стороны ({_sideA:DoubleFormat}, {_sideB:DoubleFormat}, " +
+                    $"{_sideC:DoubleFormat}) не образуют треугольник.");
             }
         }
 
@@ -124,10 +124,8 @@ namespace Model
         /// <returns>Площадь треугольника.</returns>
         public override double CalculateArea()
         {
-            //TODO: RSDN+
             double semiPerimeter = (_sideA + _sideB + _sideC) / 2.0;
             double area = Math.Sqrt(
-                //TODO: RSDN+
                 semiPerimeter
                 * (semiPerimeter - _sideA)
                 * (semiPerimeter - _sideB)
@@ -141,9 +139,9 @@ namespace Model
         /// <returns>Строка с информацией о треугольнике.</returns>
         public override string GetInfo()
         {
-            //TODO: magic (to const)+
             return $"Треугольник: стороны = " +
-                   $"{_sideA.ToString(DoubleFormat)}, {_sideB.ToString(DoubleFormat)}, {_sideC.ToString(DoubleFormat)}, " +
+                   $"{_sideA.ToString(DoubleFormat)}, {_sideB.ToString(DoubleFormat)}, " +
+                   $"{_sideC.ToString(DoubleFormat)}, " +
                    $"площадь = {CalculateArea().ToString(DoubleFormat)}";
         }
     }

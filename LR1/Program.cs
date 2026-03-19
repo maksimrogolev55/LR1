@@ -68,7 +68,6 @@ namespace ConsoleLoader
                 Console.WriteLine($"  {shape.GetInfo()}");
             }
 
-            //TODO: remove+
 
             ShapeBase shape1 = new Circle(10);
             Console.WriteLine($"shape1: {shape1.GetInfo()}");
@@ -178,7 +177,6 @@ namespace ConsoleLoader
                         case 3:
                         {
                             Console.WriteLine("\nВведите стороны треугольника:");
-                                //TODO: remove+
                             double a = ReadPositiveDouble("Сторона A: ");
                             double b = ReadPositiveDouble("Сторона B: ");
                             double c = ReadPositiveDouble("Сторона C: ");
@@ -187,11 +185,9 @@ namespace ConsoleLoader
                         }
 
                         default:
-                            //TODO: remove+
                             continue;
                     }
                 }
-                //TODO: refactor+
                 catch (ArgumentException ex)
                 {
                     Console.WriteLine($"Ошибка: {ex.Message} Попробуйте снова.");

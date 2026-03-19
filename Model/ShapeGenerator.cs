@@ -64,7 +64,6 @@ namespace Model
 
             switch (type)
             {
-                //TODO: {}+
                 case 0:
                 { 
                     return GetRandomCircle(); 

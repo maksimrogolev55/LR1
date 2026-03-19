@@ -82,7 +82,6 @@
         /// <returns>Строка с информацией о прямоугольнике.</returns>
         public override string GetInfo()
         {
-            //TODO: magic (to const)+
             return $"Прямоугольник: ширина = {_width.ToString(DoubleFormat)}, " +
                    $"высота = {_height.ToString(DoubleFormat)}, " +
                    $"площадь = {CalculateArea().ToString(DoubleFormat)}";
