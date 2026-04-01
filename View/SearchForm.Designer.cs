@@ -53,6 +53,7 @@
             btnSearch.TabIndex = 1;
             btnSearch.Text = "Найти";
             btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // dataGridViewResult
             // 

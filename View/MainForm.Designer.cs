@@ -30,15 +30,15 @@
         {
             groupBox1 = new GroupBox();
             dataGridViewShapes = new DataGridView();
+            colType = new DataGridViewTextBoxColumn();
+            colInfo = new DataGridViewTextBoxColumn();
+            colArea = new DataGridViewTextBoxColumn();
             btnAdd = new Button();
             btnRemove = new Button();
             btnSearch = new Button();
             btnSave = new Button();
             btnLoad = new Button();
             labelCount = new Label();
-            colType = new DataGridViewTextBoxColumn();
-            colInfo = new DataGridViewTextBoxColumn();
-            colArea = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewShapes).BeginInit();
             SuspendLayout();
@@ -52,7 +52,6 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Список фигур";
-            groupBox1.Enter += this.groupBox1_Enter;
             // 
             // dataGridViewShapes
             // 
@@ -67,67 +66,6 @@
             dataGridViewShapes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewShapes.Size = new Size(554, 278);
             dataGridViewShapes.TabIndex = 0;
-            dataGridViewShapes.CellContentClick += this.dataGridViewShapes_CellContentClick;
-            // 
-            // btnAdd
-            // 
-            btnAdd.Location = new Point(413, 343);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(75, 23);
-            btnAdd.TabIndex = 1;
-            btnAdd.Text = "Добавить";
-            btnAdd.UseVisualStyleBackColor = true;
-            btnAdd.Click += this.button1_Click;
-            // 
-            // btnRemove
-            // 
-            btnRemove.Location = new Point(494, 343);
-            btnRemove.Name = "btnRemove";
-            btnRemove.Size = new Size(75, 23);
-            btnRemove.TabIndex = 2;
-            btnRemove.Text = "Удалить";
-            btnRemove.UseVisualStyleBackColor = true;
-            btnRemove.Click += this.button1_Click_1;
-            // 
-            // btnSearch
-            // 
-            btnSearch.Location = new Point(494, 314);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(75, 23);
-            btnSearch.TabIndex = 3;
-            btnSearch.Text = "Поиск";
-            btnSearch.UseVisualStyleBackColor = true;
-            btnSearch.Click += this.btnSearch_Click;
-            // 
-            // btnSave
-            // 
-            btnSave.Location = new Point(15, 314);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(75, 23);
-            btnSave.TabIndex = 4;
-            btnSave.Text = "Сохранить";
-            btnSave.UseVisualStyleBackColor = true;
-            btnSave.Click += this.btnSave_Click;
-            // 
-            // btnLoad
-            // 
-            btnLoad.Location = new Point(96, 314);
-            btnLoad.Name = "btnLoad";
-            btnLoad.Size = new Size(75, 23);
-            btnLoad.TabIndex = 5;
-            btnLoad.Text = "Загрузить";
-            btnLoad.UseVisualStyleBackColor = true;
-            btnLoad.Click += this.btnLoad_Click;
-            // 
-            // labelCount
-            // 
-            labelCount.AutoSize = true;
-            labelCount.Location = new Point(472, 369);
-            labelCount.Name = "labelCount";
-            labelCount.Size = new Size(97, 15);
-            labelCount.TabIndex = 6;
-            labelCount.Text = "\"Всего фигур: 0\"";
-            labelCount.Click += this.labelCount_Click;
             // 
             // colType
             // 
@@ -148,6 +86,66 @@
             colArea.Name = "colArea";
             colArea.ReadOnly = true;
             colArea.Width = 80;
+            // 
+            // btnAdd
+            // 
+            btnAdd.Location = new Point(413, 329);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(75, 23);
+            btnAdd.TabIndex = 1;
+            btnAdd.Text = "Добавить";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // btnRemove
+            // 
+            btnRemove.Location = new Point(494, 329);
+            btnRemove.Name = "btnRemove";
+            btnRemove.Size = new Size(75, 23);
+            btnRemove.TabIndex = 2;
+            btnRemove.Text = "Удалить";
+            btnRemove.UseVisualStyleBackColor = true;
+            btnRemove.Click += btnRemove_Click;
+            // 
+            // btnSearch
+            // 
+            btnSearch.Location = new Point(413, 358);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(75, 23);
+            btnSearch.TabIndex = 3;
+            btnSearch.Text = "Поиск";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
+            // 
+            // btnSave
+            // 
+            btnSave.Location = new Point(15, 329);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(75, 23);
+            btnSave.TabIndex = 4;
+            btnSave.Text = "Сохранить";
+            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
+            // 
+            // btnLoad
+            // 
+            btnLoad.Location = new Point(96, 329);
+            btnLoad.Name = "btnLoad";
+            btnLoad.Size = new Size(75, 23);
+            btnLoad.TabIndex = 5;
+            btnLoad.Text = "Загрузить";
+            btnLoad.UseVisualStyleBackColor = true;
+            btnLoad.Click += btnLoad_Click;
+            // 
+            // labelCount
+            // 
+            labelCount.AutoSize = true;
+            labelCount.Location = new Point(482, 311);
+            labelCount.Name = "labelCount";
+            labelCount.Size = new Size(87, 15);
+            labelCount.TabIndex = 6;
+            labelCount.Text = "Всего фигур: 0";
+            labelCount.Click += labelCount_Click;
             // 
             // MainForm
             // 

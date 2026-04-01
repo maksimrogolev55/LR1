@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            radioButton1 = new RadioButton();
-            radioButton2 = new RadioButton();
             radioButton3 = new RadioButton();
+            radioButton2 = new RadioButton();
+            radioButton1 = new RadioButton();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -56,6 +56,28 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Тип фигуры";
             // 
+            // radioButton3
+            // 
+            radioButton3.AutoSize = true;
+            radioButton3.Location = new Point(6, 65);
+            radioButton3.Name = "radioButton3";
+            radioButton3.Size = new Size(96, 19);
+            radioButton3.TabIndex = 2;
+            radioButton3.Text = "Треугольник";
+            radioButton3.UseVisualStyleBackColor = true;
+            radioButton3.CheckedChanged += radioButton3_CheckedChanged;
+            // 
+            // radioButton2
+            // 
+            radioButton2.AutoSize = true;
+            radioButton2.Location = new Point(6, 42);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(114, 19);
+            radioButton2.TabIndex = 1;
+            radioButton2.Text = "Прямоугольник";
+            radioButton2.UseVisualStyleBackColor = true;
+            radioButton2.CheckedChanged += radioButton2_CheckedChanged;
+            // 
             // radioButton1
             // 
             radioButton1.AutoSize = true;
@@ -67,26 +89,7 @@
             radioButton1.TabStop = true;
             radioButton1.Text = "Круг";
             radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(6, 42);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(114, 19);
-            radioButton2.TabIndex = 1;
-            radioButton2.Text = "Прямоугольник";
-            radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(6, 65);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(96, 19);
-            radioButton3.TabIndex = 2;
-            radioButton3.Text = "Треугольник";
-            radioButton3.UseVisualStyleBackColor = true;
+            radioButton1.CheckedChanged += radioButton1_CheckedChanged;
             // 
             // label1
             // 
@@ -148,6 +151,7 @@
             btnRandom.TabIndex = 7;
             btnRandom.Text = "Случайно";
             btnRandom.UseVisualStyleBackColor = true;
+            btnRandom.Click += btnRandom_Click;
             // 
             // btnOk
             // 
@@ -157,6 +161,7 @@
             btnOk.TabIndex = 8;
             btnOk.Text = "Ок";
             btnOk.UseVisualStyleBackColor = true;
+            btnOk.Click += btnOk_Click;
             // 
             // btnCancel
             // 
