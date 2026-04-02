@@ -34,7 +34,14 @@ namespace View
             foreach (ShapeBase shape in _shapes)
             {
                 string info = shape.GetInfo();
+                // Извлекаем только информацию о фигуре без площади
                 string cleanInfo = info.Substring(info.IndexOf(":") + 2);
+                // Удаляем часть с площадью, если она есть
+                int areaIndex = cleanInfo.IndexOf(", Площадь:");
+                if (areaIndex >= 0)
+                {
+                    cleanInfo = cleanInfo.Substring(0, areaIndex);
+                }
 
                 dataGridViewShapes.Rows.Add(
                     shape.GetShapeType(),
