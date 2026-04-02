@@ -5,6 +5,7 @@
     /// </summary>
     public class Rectangle : ShapeBase
     {
+        public Rectangle() { }
         /// <summary>
         /// Ширина прямоугольника.
         /// </summary>
@@ -85,6 +86,10 @@
             return $"Прямоугольник: ширина = {_width.ToString(DoubleFormat)}, " +
                    $"высота = {_height.ToString(DoubleFormat)}, " +
                    $"площадь = {CalculateArea().ToString(DoubleFormat)}";
+        }
+        public override string GetShapeType()
+        {
+            return "Прямоугольник";
         }
     }
 }

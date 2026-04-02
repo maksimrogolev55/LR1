@@ -31,10 +31,10 @@
             txtSearch = new TextBox();
             btnSearch = new Button();
             dataGridViewResult = new DataGridView();
+            lblCount = new Label();
             colType = new DataGridViewTextBoxColumn();
             colInfo = new DataGridViewTextBoxColumn();
             colArea = new DataGridViewTextBoxColumn();
-            lblCount = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewResult).BeginInit();
             SuspendLayout();
             // 
@@ -67,7 +67,15 @@
             dataGridViewResult.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewResult.Size = new Size(460, 275);
             dataGridViewResult.TabIndex = 2;
-            dataGridViewResult.CellContentClick += dataGridViewResult_CellContentClick;
+            // 
+            // lblCount
+            // 
+            lblCount.AutoSize = true;
+            lblCount.Location = new Point(12, 317);
+            lblCount.Name = "lblCount";
+            lblCount.Size = new Size(104, 15);
+            lblCount.TabIndex = 3;
+            lblCount.Text = "Найдено фигур: 0";
             // 
             // colType
             // 
@@ -80,7 +88,7 @@
             colInfo.HeaderText = "Информация\t";
             colInfo.Name = "colInfo";
             colInfo.ReadOnly = true;
-            colInfo.Width = 280;
+            colInfo.Width = 235;
             // 
             // colArea
             // 
@@ -88,15 +96,6 @@
             colArea.Name = "colArea";
             colArea.ReadOnly = true;
             colArea.Width = 80;
-            // 
-            // lblCount
-            // 
-            lblCount.AutoSize = true;
-            lblCount.Location = new Point(12, 317);
-            lblCount.Name = "lblCount";
-            lblCount.Size = new Size(104, 15);
-            lblCount.TabIndex = 3;
-            lblCount.Text = "Найдено фигур: 0";
             // 
             // SearchForm
             // 
@@ -123,9 +122,9 @@
         private TextBox txtSearch;
         private Button btnSearch;
         private DataGridView dataGridViewResult;
+        private Label lblCount;
         private DataGridViewTextBoxColumn colType;
         private DataGridViewTextBoxColumn colInfo;
         private DataGridViewTextBoxColumn colArea;
-        private Label lblCount;
     }
 }

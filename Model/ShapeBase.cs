@@ -13,6 +13,7 @@ namespace Model
         /// параметров фигуры.
         /// </summary>
         protected const double MinValue = 1e-10;
+        protected ShapeBase() { }
 
         /// <summary>
         /// Формат вывода чисел с плавающей точкой.
@@ -50,5 +51,6 @@ namespace Model
         /// </summary>
         /// <returns>Строка с информацией о фигуре.</returns>
         public abstract string GetInfo();
+        public abstract string GetShapeType();
     }
 }

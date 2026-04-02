@@ -7,6 +7,7 @@ namespace Model
     /// </summary>
     public class Triangle : ShapeBase
     {
+        public Triangle() { }
         /// <summary>
         /// Сторона A.
         /// </summary>
@@ -56,8 +57,9 @@ namespace Model
                 _sideB + _sideC <= _sideA)
             {
                 throw new ArgumentException(
-                    $"Стороны ({_sideA:DoubleFormat}, {_sideB:DoubleFormat}, " +
-                    $"{_sideC:DoubleFormat}) не образуют треугольник.");
+                    $"Стороны ({_sideA.ToString(DoubleFormat)}, " +
+                    $"{_sideB.ToString(DoubleFormat)}, " +
+                    $"{_sideC.ToString(DoubleFormat)}) не образуют треугольник.");
             }
         }
 
@@ -143,6 +145,10 @@ namespace Model
                    $"{_sideA.ToString(DoubleFormat)}, {_sideB.ToString(DoubleFormat)}, " +
                    $"{_sideC.ToString(DoubleFormat)}, " +
                    $"площадь = {CalculateArea().ToString(DoubleFormat)}";
+        }
+        public override string GetShapeType()
+        {
+            return "Треугольник";
         }
     }
 }
