@@ -10,7 +10,10 @@ namespace View
     /// </summary>
     public partial class SearchForm : Form
     {
+        //TODO: XML
         private List<ShapeBase> _allShapes;
+
+        //TODO: XML
         private List<ShapeBase> _searchResult;
 
         /// <summary>
@@ -58,6 +61,7 @@ namespace View
                 dataGridViewResult.Rows.Add(
                     shape.GetShapeType(),
                     shape.GetInfo(),
+                    //TODO: duplication
                     shape.CalculateArea().ToString("F2")
                 );
             }

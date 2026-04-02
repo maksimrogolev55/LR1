@@ -61,6 +61,8 @@ namespace Model
             return $"Круг: радиус = {_radius.ToString(DoubleFormat)}, " +
                    $"площадь = {CalculateArea().ToString(DoubleFormat)}";
         }
+
+        //TODO: XML
         public override string GetShapeType()
         {
             return "Круг";

@@ -51,6 +51,8 @@ namespace Model
         /// </summary>
         /// <returns>Строка с информацией о фигуре.</returns>
         public abstract string GetInfo();
+
+        //TODO: XML
         public abstract string GetShapeType();
     }
 }

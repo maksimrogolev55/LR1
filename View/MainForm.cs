@@ -12,6 +12,7 @@ namespace View
     /// </summary>
     public partial class MainForm : Form
     {
+        //TODO: XML
         private List<ShapeBase> _shapes;
 
         /// <summary>
@@ -46,6 +47,7 @@ namespace View
                 dataGridViewShapes.Rows.Add(
                     shape.GetShapeType(),
                     cleanInfo,
+                    //TODO: duplication
                     shape.CalculateArea().ToString("F2")
                 );
             }
@@ -53,6 +55,7 @@ namespace View
             labelCount.Text = $"Всего фигур: {_shapes.Count}";
         }
 
+        //TODO: RSDN
         /// <summary>
         /// Обрабатывает нажатие кнопки "Удалить". Удаляет выбранную фигуру из списка.
         /// </summary>
@@ -102,8 +105,10 @@ namespace View
                 {
                     try
                     {
+                        //TODO: duplication
                         XmlSerializer serializer = new XmlSerializer(
                             typeof(List<ShapeBase>),
+                            //TODO: RSDN
                             new Type[] { typeof(Circle), typeof(Model.Rectangle), typeof(Triangle) });
 
                         using (StreamWriter writer = new StreamWriter(saveDialog.FileName))
@@ -170,8 +175,10 @@ namespace View
                             return;
                         }
 
+                        //TODO: duplication
                         XmlSerializer serializer = new XmlSerializer(
                             typeof(List<ShapeBase>),
+                            //TODO: RSDN
                             new Type[] { typeof(Circle), typeof(Model.Rectangle), typeof(Triangle) });
 
                         using (StreamReader reader = new StreamReader(openDialog.FileName))

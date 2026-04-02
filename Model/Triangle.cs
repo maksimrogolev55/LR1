@@ -7,7 +7,9 @@ namespace Model
     /// </summary>
     public class Triangle : ShapeBase
     {
+        //TODO: XML
         public Triangle() { }
+
         /// <summary>
         /// Сторона A.
         /// </summary>
@@ -146,6 +148,8 @@ namespace Model
                    $"{_sideC.ToString(DoubleFormat)}, " +
                    $"площадь = {CalculateArea().ToString(DoubleFormat)}";
         }
+
+        //TODO: XML
         public override string GetShapeType()
         {
             return "Треугольник";
