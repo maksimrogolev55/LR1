@@ -21,7 +21,7 @@ namespace View
         {
             InitializeComponent();
         }
-        //TODO: XML+
+
         /// <summary>
         /// Преобразует строку в число, заменяя точку на запятую.
         /// </summary>
@@ -31,16 +31,6 @@ namespace View
         {
             return double.Parse(text.Replace('.', ','));
         }
-
-        //TODO: XML+
-
-        //TODO: remove+
-
-        //TODO: remove+
-
-        //TODO: remove+
-
-        //TODO: remove+
 
         /// <summary>
         /// Обрабатывает нажатие кнопки "ОК". Создает фигуру на основе
@@ -144,7 +134,6 @@ namespace View
         }
 
         /// <summary>
-        /// //TODO: RSDN+
         /// Обрабатывает изменение выбора радио-кнопки для прямоугольника.
         /// Настраивает интерфейс для ввода ширины и высоты.
         /// </summary>
@@ -161,7 +150,6 @@ namespace View
         }
 
         /// <summary>
-        /// //TODO: RSDN+
         /// Обрабатывает изменение выбора радио-кнопки для треугольника.
         /// Настраивает интерфейс для ввода трех сторон.
         /// </summary>
