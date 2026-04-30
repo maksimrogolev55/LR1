@@ -23,7 +23,9 @@ namespace View
         /// <summary>
         /// Инициализирует новый экземпляр формы поиска.
         /// </summary>
-        /// <param name="shapes">Коллекция всех фигур, среди которых будет выполняться поиск.</param>
+        /// <param name="shapes">
+        /// Коллекция всех фигур, среди которых будет выполняться поиск.
+        /// </param>
         public SearchForm(List<ShapeBase> shapes)
         {
             InitializeComponent();

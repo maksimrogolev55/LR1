@@ -8,7 +8,8 @@ using Model;
 namespace View
 {
     /// <summary>
-    /// Главная форма приложения для управления коллекцией геометрических фигур.
+    /// Главная форма приложения для управления
+    /// коллекцией геометрических фигур.
     /// </summary>
     public partial class MainForm : Form
     {
@@ -48,7 +49,8 @@ namespace View
         }
 
         /// <summary>
-        /// Обновляет отображение таблицы с фигурами и счетчик общего количества фигур.
+        /// Обновляет отображение таблицы с фигурами
+        /// и счетчик общего количества фигур.
         /// </summary>
         private void UpdateGrid()
         {
@@ -75,7 +77,8 @@ namespace View
         }
 
         /// <summary>
-        /// Обрабатывает нажатие кнопки "Удалить". Удаляет выбранную фигуру из списка.
+        /// Обрабатывает нажатие кнопки "Удалить".
+        /// Удаляет выбранную фигуру из списка.
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Аргументы события.</param>
@@ -131,7 +134,8 @@ namespace View
         }
 
         /// <summary>
-        /// Обрабатывает нажатие кнопки "Сохранить". Сохраняет коллекцию фигур в XML-файл.
+        /// Обрабатывает нажатие кнопки "Сохранить".
+        /// Сохраняет коллекцию фигур в XML-файл.
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Аргументы события.</param>
@@ -219,6 +223,11 @@ namespace View
                         using (StreamReader reader = new StreamReader(openDialog.FileName))
                         {
                             _shapes = (List<ShapeBase>)serializer.Deserialize(reader);
+                        }
+
+                        foreach (ShapeBase shape in _shapes)
+                        {
+                            shape.Validate();
                         }
 
                         UpdateGrid();

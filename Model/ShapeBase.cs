@@ -21,17 +21,23 @@ namespace Model
         public const string DoubleFormat = "F2";
 
         /// <summary>
-        /// Проверяет, что значение положительное.
+        /// Проверяет, что значение положительное и является числом.
         /// </summary>
         /// <param name="value">Проверяемое значение.</param>
         /// <param name="paramName">Имя параметра.</param>
         /// <exception cref="ArgumentException">
-        /// Выбрасывается, если значение меньше или равно 0.
+        /// Выбрасывается, если значение меньше или равно 0, или равно NaN.
         /// </exception>
         protected static void ValidatePositive(
             double value,
             string paramName)
         {
+            if (double.IsNaN(value))
+            {
+                throw new ArgumentException(
+                    $"Параметр '{paramName}' не является числом (NaN).");
+            }
+
             if (value <= MinValue)
             {
                 throw new ArgumentException(

@@ -20,135 +20,27 @@ namespace View
         public AddShapeForm()
         {
             InitializeComponent();
-
-#if !DEBUG
-//TODO: RSDN
-            btnRandom.Visible = false;
-#endif
         }
-        //TODO: XML
+        //TODO: XML+
+        /// <summary>
+        /// Преобразует строку в число, заменяя точку на запятую.
+        /// </summary>
+        /// <param name="text">Строка для преобразования.</param>
+        /// <returns>Числовое значение.</returns>
         private double ParseDouble(string text)
         {
             return double.Parse(text.Replace('.', ','));
         }
 
-        //TODO: XML
-        private List<string> _errors;
+        //TODO: XML+
 
-        //TODO: remove
-        private void ClearErrors()
-        {
-            _errors = new List<string>();
-        }
+        //TODO: remove+
 
-        //TODO: XML
-        private void AddError(string message)
-        {
-            _errors.Add(message);
-        }
+        //TODO: remove+
 
-        //TODO: remove
-        private bool ValidateCircleInput()
-        {
-            bool isValid = true;
+        //TODO: remove+
 
-            if (!double.TryParse(_textBoxParameterOne.Text.Replace('.', ','),
-                out double radius))
-            {
-                AddError("Радиус: введите корректное число");
-                isValid = false;
-            }
-            else if (radius <= 0)
-            {
-                AddError("Радиус: должен быть больше 0");
-                isValid = false;
-            }
-
-            return isValid;
-        }
-
-        //TODO: remove
-        private bool ValidateRectangleInput()
-        {
-            bool isValid = true;
-
-            if (!double.TryParse(_textBoxParameterOne.Text.Replace('.', ','),
-                out double width))
-            {
-                AddError("Ширина: введите корректное число");
-                isValid = false;
-            }
-            else if (width <= 0)
-            {
-                AddError("Ширина: должна быть больше 0");
-                isValid = false;
-            }
-
-            if (!double.TryParse(_textBoxParameterTwo.Text.Replace('.', ','),
-                out double height))
-            {
-                AddError("Высота: введите корректное число");
-                isValid = false;
-            }
-            else if (height <= 0)
-            {
-                AddError("Высота: должна быть больше 0");
-                isValid = false;
-            }
-
-            return isValid;
-        }
-
-        //TODO: remove
-        private bool ValidateTriangleInput()
-        {
-            bool isValid = true;
-            double a = 0, b = 0, c = 0;
-
-            if (!double.TryParse(_textBoxParameterOne.Text.Replace('.', ','), out a))
-            {
-                AddError("Сторона A: введите корректное число");
-                isValid = false;
-            }
-            else if (a <= 0)
-            {
-                AddError("Сторона A: должна быть больше 0");
-                isValid = false;
-            }
-
-            if (!double.TryParse(_textBoxParameterTwo.Text.Replace('.', ','), out b))
-            {
-                AddError("Сторона B: введите корректное число");
-                isValid = false;
-            }
-            else if (b <= 0)
-            {
-                AddError("Сторона B: должна быть больше 0");
-                isValid = false;
-            }
-
-            if (!double.TryParse(_textBoxParameterThree.Text.Replace('.', ','), out c))
-            {
-                AddError("Сторона C: введите корректное число");
-                isValid = false;
-            }
-            else if (c <= 0)
-            {
-                AddError("Сторона C: должна быть больше 0");
-                isValid = false;
-            }
-
-            if (isValid)
-            {
-                if (a + b <= c || a + c <= b || b + c <= a)
-                {
-                    AddError("Стороны не образуют треугольник");
-                    isValid = false;
-                }
-            }
-
-            return isValid;
-        }
+        //TODO: remove+
 
         /// <summary>
         /// Обрабатывает нажатие кнопки "ОК". Создает фигуру на основе
@@ -252,8 +144,9 @@ namespace View
         }
 
         /// <summary>
-        /// //TODO: RSDN
-        /// Обрабатывает изменение выбора радио-кнопки для прямоугольника. Настраивает интерфейс для ввода ширины и высоты.
+        /// //TODO: RSDN+
+        /// Обрабатывает изменение выбора радио-кнопки для прямоугольника.
+        /// Настраивает интерфейс для ввода ширины и высоты.
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Аргументы события.</param>
@@ -268,8 +161,9 @@ namespace View
         }
 
         /// <summary>
-        /// //TODO: RSDN
-        /// Обрабатывает изменение выбора радио-кнопки для треугольника. Настраивает интерфейс для ввода трех сторон.
+        /// //TODO: RSDN+
+        /// Обрабатывает изменение выбора радио-кнопки для треугольника.
+        /// Настраивает интерфейс для ввода трех сторон.
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Аргументы события.</param>
