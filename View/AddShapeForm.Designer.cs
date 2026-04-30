@@ -179,7 +179,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = _buttonCancel;
-            ClientSize = new Size(284, 281);
+            ClientSize = new Size(284, 245);
             Controls.Add(_buttonCancel);
             Controls.Add(_buttonOk);
             Controls.Add(_buttonRandom);

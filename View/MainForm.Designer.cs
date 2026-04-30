@@ -30,15 +30,15 @@
         {
             _groupBoxShapes = new GroupBox();
             _dataGridViewShapes = new DataGridView();
+            columnType = new DataGridViewTextBoxColumn();
+            columnInfo = new DataGridViewTextBoxColumn();
+            columnArea = new DataGridViewTextBoxColumn();
             _buttonAdd = new Button();
             _buttonRemove = new Button();
             _buttonSearch = new Button();
             _buttonSave = new Button();
             _buttonLoad = new Button();
             _labelCount = new Label();
-            columnType = new DataGridViewTextBoxColumn();
-            columnInfo = new DataGridViewTextBoxColumn();
-            columnArea = new DataGridViewTextBoxColumn();
             _groupBoxShapes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)_dataGridViewShapes).BeginInit();
             SuspendLayout();
@@ -67,9 +67,29 @@
             _dataGridViewShapes.Size = new Size(554, 278);
             _dataGridViewShapes.TabIndex = 0;
             // 
+            // columnType
+            // 
+            columnType.HeaderText = "Тип";
+            columnType.Name = "columnType";
+            columnType.ReadOnly = true;
+            // 
+            // columnInfo
+            // 
+            columnInfo.HeaderText = "Информация";
+            columnInfo.Name = "columnInfo";
+            columnInfo.ReadOnly = true;
+            columnInfo.Width = 330;
+            // 
+            // columnArea
+            // 
+            columnArea.HeaderText = "Площадь";
+            columnArea.Name = "columnArea";
+            columnArea.ReadOnly = true;
+            columnArea.Width = 80;
+            // 
             // _buttonAdd
             // 
-            _buttonAdd.Location = new Point(15, 346);
+            _buttonAdd.Location = new Point(15, 351);
             _buttonAdd.Name = "_buttonAdd";
             _buttonAdd.Size = new Size(75, 23);
             _buttonAdd.TabIndex = 1;
@@ -125,26 +145,6 @@
             _labelCount.Size = new Size(87, 15);
             _labelCount.TabIndex = 6;
             _labelCount.Text = "Всего фигур: 0";
-            // 
-            // columnType
-            // 
-            columnType.HeaderText = "Тип";
-            columnType.Name = "columnType";
-            columnType.ReadOnly = true;
-            // 
-            // columnInfo
-            // 
-            columnInfo.HeaderText = "Информация";
-            columnInfo.Name = "columnInfo";
-            columnInfo.ReadOnly = true;
-            columnInfo.Width = 330;
-            // 
-            // columnArea
-            // 
-            columnArea.HeaderText = "Площадь";
-            columnArea.Name = "columnArea";
-            columnArea.ReadOnly = true;
-            columnArea.Width = 80;
             // 
             // MainForm
             // 
