@@ -28,159 +28,159 @@
         /// </summary>
         private void InitializeComponent()
         {
-            groupBox1 = new GroupBox();
-            dataGridViewShapes = new DataGridView();
-            colType = new DataGridViewTextBoxColumn();
-            colInfo = new DataGridViewTextBoxColumn();
-            colArea = new DataGridViewTextBoxColumn();
-            btnAdd = new Button();
-            btnRemove = new Button();
-            btnSearch = new Button();
-            btnSave = new Button();
-            btnLoad = new Button();
-            labelCount = new Label();
-            groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewShapes).BeginInit();
+            _groupBoxShapes = new GroupBox();
+            _dataGridViewShapes = new DataGridView();
+            _buttonAdd = new Button();
+            _buttonRemove = new Button();
+            _buttonSearch = new Button();
+            _buttonSave = new Button();
+            _buttonLoad = new Button();
+            _labelCount = new Label();
+            columnType = new DataGridViewTextBoxColumn();
+            columnInfo = new DataGridViewTextBoxColumn();
+            columnArea = new DataGridViewTextBoxColumn();
+            _groupBoxShapes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)_dataGridViewShapes).BeginInit();
             SuspendLayout();
             // 
-            // groupBox1
+            // _groupBoxShapes
             // 
-            groupBox1.Controls.Add(dataGridViewShapes);
-            groupBox1.Location = new Point(12, 8);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(560, 300);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Список фигур";
+            _groupBoxShapes.Controls.Add(_dataGridViewShapes);
+            _groupBoxShapes.Location = new Point(12, 8);
+            _groupBoxShapes.Name = "_groupBoxShapes";
+            _groupBoxShapes.Size = new Size(560, 300);
+            _groupBoxShapes.TabIndex = 0;
+            _groupBoxShapes.TabStop = false;
+            _groupBoxShapes.Text = "Список фигур";
             // 
-            // dataGridViewShapes
+            // _dataGridViewShapes
             // 
-            dataGridViewShapes.AllowUserToAddRows = false;
-            dataGridViewShapes.AllowUserToDeleteRows = false;
-            dataGridViewShapes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewShapes.Columns.AddRange(new DataGridViewColumn[] { colType, colInfo, colArea });
-            dataGridViewShapes.Dock = DockStyle.Fill;
-            dataGridViewShapes.Location = new Point(3, 19);
-            dataGridViewShapes.Name = "dataGridViewShapes";
-            dataGridViewShapes.ReadOnly = true;
-            dataGridViewShapes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewShapes.Size = new Size(554, 278);
-            dataGridViewShapes.TabIndex = 0;
+            _dataGridViewShapes.AllowUserToAddRows = false;
+            _dataGridViewShapes.AllowUserToDeleteRows = false;
+            _dataGridViewShapes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            _dataGridViewShapes.Columns.AddRange(new DataGridViewColumn[] { columnType, columnInfo, columnArea });
+            _dataGridViewShapes.Dock = DockStyle.Fill;
+            _dataGridViewShapes.Location = new Point(3, 19);
+            _dataGridViewShapes.Name = "_dataGridViewShapes";
+            _dataGridViewShapes.ReadOnly = true;
+            _dataGridViewShapes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            _dataGridViewShapes.Size = new Size(554, 278);
+            _dataGridViewShapes.TabIndex = 0;
             // 
-            // colType
+            // _buttonAdd
             // 
-            colType.HeaderText = "Тип";
-            colType.Name = "colType";
-            colType.ReadOnly = true;
+            _buttonAdd.Location = new Point(15, 346);
+            _buttonAdd.Name = "_buttonAdd";
+            _buttonAdd.Size = new Size(75, 23);
+            _buttonAdd.TabIndex = 1;
+            _buttonAdd.Text = "Добавить";
+            _buttonAdd.UseVisualStyleBackColor = true;
+            _buttonAdd.Click += ButtonAddClick;
             // 
-            // colInfo
+            // _buttonRemove
             // 
-            colInfo.HeaderText = "Информация";
-            colInfo.Name = "colInfo";
-            colInfo.ReadOnly = true;
-            colInfo.Width = 330;
+            _buttonRemove.Location = new Point(15, 375);
+            _buttonRemove.Name = "_buttonRemove";
+            _buttonRemove.Size = new Size(75, 23);
+            _buttonRemove.TabIndex = 2;
+            _buttonRemove.Text = "Удалить";
+            _buttonRemove.UseVisualStyleBackColor = true;
+            _buttonRemove.Click += ButtonRemoveClick;
             // 
-            // colArea
+            // _buttonSearch
             // 
-            colArea.HeaderText = "Площадь";
-            colArea.Name = "colArea";
-            colArea.ReadOnly = true;
-            colArea.Width = 80;
+            _buttonSearch.Location = new Point(15, 314);
+            _buttonSearch.Name = "_buttonSearch";
+            _buttonSearch.Size = new Size(75, 23);
+            _buttonSearch.TabIndex = 3;
+            _buttonSearch.Text = "Поиск";
+            _buttonSearch.UseVisualStyleBackColor = true;
+            _buttonSearch.Click += ButtonSearchClick;
             // 
-            // btnAdd
+            // _buttonSave
             // 
-            btnAdd.Location = new Point(15, 346);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(75, 23);
-            btnAdd.TabIndex = 1;
-            btnAdd.Text = "Добавить";
-            btnAdd.UseVisualStyleBackColor = true;
-            btnAdd.Click += BtnAdd_Click;
+            _buttonSave.Location = new Point(413, 314);
+            _buttonSave.Name = "_buttonSave";
+            _buttonSave.Size = new Size(75, 23);
+            _buttonSave.TabIndex = 4;
+            _buttonSave.Text = "Сохранить";
+            _buttonSave.UseVisualStyleBackColor = true;
+            _buttonSave.Click += ButtonSaveClick;
             // 
-            // btnRemove
+            // _buttonLoad
             // 
-            btnRemove.Location = new Point(15, 375);
-            btnRemove.Name = "btnRemove";
-            btnRemove.Size = new Size(75, 23);
-            btnRemove.TabIndex = 2;
-            btnRemove.Text = "Удалить";
-            btnRemove.UseVisualStyleBackColor = true;
-            btnRemove.Click += BtnRemove_Click;
+            _buttonLoad.Location = new Point(494, 314);
+            _buttonLoad.Name = "_buttonLoad";
+            _buttonLoad.Size = new Size(75, 23);
+            _buttonLoad.TabIndex = 5;
+            _buttonLoad.Text = "Загрузить";
+            _buttonLoad.UseVisualStyleBackColor = true;
+            _buttonLoad.Click += ButtonLoadClick;
             // 
-            // btnSearch
+            // _labelCount
             // 
-            btnSearch.Location = new Point(15, 314);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(75, 23);
-            btnSearch.TabIndex = 3;
-            btnSearch.Text = "Поиск";
-            btnSearch.UseVisualStyleBackColor = true;
-            btnSearch.Click += BtnSearch_Click;
+            _labelCount.AutoSize = true;
+            _labelCount.Location = new Point(96, 318);
+            _labelCount.Name = "_labelCount";
+            _labelCount.Size = new Size(87, 15);
+            _labelCount.TabIndex = 6;
+            _labelCount.Text = "Всего фигур: 0";
             // 
-            // btnSave
+            // columnType
             // 
-            btnSave.Location = new Point(413, 314);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(75, 23);
-            btnSave.TabIndex = 4;
-            btnSave.Text = "Сохранить";
-            btnSave.UseVisualStyleBackColor = true;
-            btnSave.Click += BtnSave_Click;
+            columnType.HeaderText = "Тип";
+            columnType.Name = "columnType";
+            columnType.ReadOnly = true;
             // 
-            // btnLoad
+            // columnInfo
             // 
-            btnLoad.Location = new Point(494, 314);
-            btnLoad.Name = "btnLoad";
-            btnLoad.Size = new Size(75, 23);
-            btnLoad.TabIndex = 5;
-            btnLoad.Text = "Загрузить";
-            btnLoad.UseVisualStyleBackColor = true;
-            btnLoad.Click += BtnLoad_Click;
+            columnInfo.HeaderText = "Информация";
+            columnInfo.Name = "columnInfo";
+            columnInfo.ReadOnly = true;
+            columnInfo.Width = 330;
             // 
-            // labelCount
+            // columnArea
             // 
-            labelCount.AutoSize = true;
-            labelCount.Location = new Point(96, 318);
-            labelCount.Name = "labelCount";
-            labelCount.Size = new Size(87, 15);
-            labelCount.TabIndex = 6;
-            labelCount.Text = "Всего фигур: 0";
+            columnArea.HeaderText = "Площадь";
+            columnArea.Name = "columnArea";
+            columnArea.ReadOnly = true;
+            columnArea.Width = 80;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(584, 411);
-            Controls.Add(labelCount);
-            Controls.Add(btnLoad);
-            Controls.Add(btnSave);
-            Controls.Add(btnSearch);
-            Controls.Add(btnRemove);
-            Controls.Add(btnAdd);
-            Controls.Add(groupBox1);
+            Controls.Add(_labelCount);
+            Controls.Add(_buttonLoad);
+            Controls.Add(_buttonSave);
+            Controls.Add(_buttonSearch);
+            Controls.Add(_buttonRemove);
+            Controls.Add(_buttonAdd);
+            Controls.Add(_groupBoxShapes);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Геометрические фигуры";
-            groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridViewShapes).EndInit();
+            _groupBoxShapes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)_dataGridViewShapes).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private GroupBox groupBox1;
-        private DataGridView dataGridViewShapes;
-        private Button btnAdd;
-        private Button btnRemove;
-        private Button btnSearch;
-        private Button btnSave;
-        private Button btnLoad;
-        private Label labelCount;
-        private DataGridViewTextBoxColumn colType;
-        private DataGridViewTextBoxColumn colInfo;
-        private DataGridViewTextBoxColumn colArea;
+        private GroupBox _groupBoxShapes;
+        private DataGridView _dataGridViewShapes;
+        private Button _buttonAdd;
+        private Button _buttonRemove;
+        private Button _buttonSearch;
+        private Button _buttonSave;
+        private Button _buttonLoad;
+        private Label _labelCount;
+        private DataGridViewTextBoxColumn columnType;
+        private DataGridViewTextBoxColumn columnInfo;
+        private DataGridViewTextBoxColumn columnArea;
     }
 }

@@ -38,12 +38,12 @@ namespace View
         /// <returns>Сериализатор для работы с XML.</returns>
         private XmlSerializer GetShapeSerializer()
         {
-            //TODО: отступы
+            //TODО: отступы+
             Type[] shapeTypes = new Type[]
             {
-        typeof(Circle),
-        typeof(Model.Rectangle),
-        typeof(Triangle)
+                typeof(Circle),
+                typeof(Model.Rectangle),
+                typeof(Triangle)
             };
             return new XmlSerializer(typeof(List<ShapeBase>), shapeTypes);
         }
@@ -53,28 +53,26 @@ namespace View
         /// </summary>
         private void UpdateGrid()
         {
-            dataGridViewShapes.Rows.Clear();
+            _dataGridViewShapes.Rows.Clear();
 
             foreach (ShapeBase shape in _shapes)
             {
                 string info = shape.GetInfo();
-                // Извлекаем только информацию о фигуре без площади
                 string cleanInfo = info.Substring(info.IndexOf(":") + 2);
-                // Удаляем часть с площадью, если она есть
                 int areaIndex = cleanInfo.IndexOf(", Площадь:");
                 if (areaIndex >= 0)
                 {
                     cleanInfo = cleanInfo.Substring(0, areaIndex);
                 }
 
-                dataGridViewShapes.Rows.Add(
+                _dataGridViewShapes.Rows.Add(
                     shape.GetShapeType(),
                     cleanInfo,
                     shape.CalculateArea().ToString(AreaFormat)
                 );
             }
 
-            labelCount.Text = $"Всего фигур: {_shapes.Count}";
+            _labelCount.Text = $"Всего фигур: {_shapes.Count}";
         }
 
         //TODO: RSDN+
@@ -83,18 +81,17 @@ namespace View
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Аргументы события.</param>
-        private void BtnRemove_Click(object sender, EventArgs e)
+        private void ButtonRemoveClick(object sender, EventArgs e)
         {
-            if (dataGridViewShapes.SelectedRows.Count == 0)
+            if (_dataGridViewShapes.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Выберите фигуры для удаления.", "Удаление",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            // Подтверждение удаления
             DialogResult result = MessageBox.Show(
-                $"Удалить выбранные фигуры ({dataGridViewShapes.SelectedRows.Count})?",
+                $"Удалить выбранные фигуры ({_dataGridViewShapes.SelectedRows.Count})?",
                 "Подтверждение удаления",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
@@ -104,15 +101,13 @@ namespace View
                 return;
             }
 
-            // Собираем индексы выбранных строк (от большего к меньшему)
             List<int> indices = new List<int>();
-            foreach (DataGridViewRow row in dataGridViewShapes.SelectedRows)
+            foreach (DataGridViewRow row in _dataGridViewShapes.SelectedRows)
             {
                 indices.Add(row.Index);
             }
             indices.Sort((a, b) => b.CompareTo(a));
 
-            // Удаляем по индексам
             foreach (int index in indices)
             {
                 if (index < _shapes.Count)
@@ -129,7 +124,7 @@ namespace View
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Аргументы события.</param>
-        private void BtnSearch_Click(object sender, EventArgs e)
+        private void ButtonSearchClick(object sender, EventArgs e)
         {
             using (SearchForm searchForm = new SearchForm(_shapes))
             {
@@ -142,7 +137,7 @@ namespace View
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Аргументы события.</param>
-        private void BtnSave_Click(object sender, EventArgs e)
+        private void ButtonSaveClick(object sender, EventArgs e)
         {
             using (SaveFileDialog saveDialog = new SaveFileDialog())
             {
@@ -173,11 +168,12 @@ namespace View
         }
 
         /// <summary>
-        /// Обрабатывает нажатие кнопки "Добавить". Открывает форму добавления новой фигуры.
+        /// Обрабатывает нажатие кнопки "Добавить".
+        /// Открывает форму добавления новой фигуры.
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Аргументы события.</param>
-        private void BtnAdd_Click(object sender, EventArgs e)
+        private void ButtonAddClick(object sender, EventArgs e)
         {
             AddShapeForm addForm = new AddShapeForm();
             addForm.ShowDialog();
@@ -190,11 +186,12 @@ namespace View
         }
 
         /// <summary>
-        /// Обрабатывает нажатие кнопки "Загрузить". Загружает коллекцию фигур из XML-файла.
+        /// Обрабатывает нажатие кнопки "Загрузить".
+        /// Загружает коллекцию фигур из XML-файла.
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Аргументы события.</param>
-        private void BtnLoad_Click(object sender, EventArgs e)
+        private void ButtonLoadClick(object sender, EventArgs e)
         {
             using (OpenFileDialog openDialog = new OpenFileDialog())
             {
@@ -232,9 +229,9 @@ namespace View
                     }
                     catch (InvalidOperationException)
                     {
-                        //TODO: RSDN
-                        MessageBox.Show("Ошибка: файл повреждён или имеет неверный формат.", "Ошибка",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //TODO: RSDN+
+                        MessageBox.Show("Ошибка: файл повреждён или имеет неверный формат.",
+                            "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     catch (Exception ex)
                     {

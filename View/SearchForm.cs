@@ -31,16 +31,17 @@ namespace View
             _searchResult = new List<ShapeBase>();
         }
 
-        //TODO: RSDN
+        //TODO: RSDN+
         /// <summary>
-        /// Обрабатывает нажатие кнопки "Поиск". Выполняет поиск фигур по введенному тексту.
+        /// Обрабатывает нажатие кнопки "Поиск".
+        /// Выполняет поиск фигур по введенному тексту.
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Аргументы события.</param>
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void ButtonSearchClick(object sender, EventArgs e)
         {
             _searchResult.Clear();
-            string searchText = txtSearch.Text.ToLower();
+            string searchText = _textBoxSearch.Text.ToLower();
 
             foreach (ShapeBase shape in _allShapes)
             {
@@ -51,8 +52,8 @@ namespace View
             }
 
             UpdateResultGrid();
-            //TODO: RSDN
-            lblCount.Text = $"Найдено фигур: {_searchResult.Count}";
+            //TODO: RSDN+
+            _labelCount.Text = $"Найдено фигур: {_searchResult.Count}";
         }
 
         /// <summary>
@@ -60,11 +61,11 @@ namespace View
         /// </summary>
         private void UpdateResultGrid()
         {
-            dataGridViewResult.Rows.Clear();
+            _dataGridViewResult.Rows.Clear();
 
             foreach (ShapeBase shape in _searchResult)
             {
-                dataGridViewResult.Rows.Add(
+                _dataGridViewResult.Rows.Add(
                     shape.GetShapeType(),
                     shape.GetInfo(),
                     shape.CalculateArea().ToString(ShapeBase.DoubleFormat)

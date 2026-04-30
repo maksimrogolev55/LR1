@@ -47,7 +47,7 @@ namespace View
         {
             bool isValid = true;
 
-            if (!double.TryParse(textBox1.Text.Replace('.', ','),
+            if (!double.TryParse(_textBoxParameterOne.Text.Replace('.', ','),
                 out double radius))
             {
                 AddError("Радиус: введите корректное число");
@@ -66,7 +66,7 @@ namespace View
         {
             bool isValid = true;
 
-            if (!double.TryParse(textBox1.Text.Replace('.', ','),
+            if (!double.TryParse(_textBoxParameterOne.Text.Replace('.', ','),
                 out double width))
             {
                 AddError("Ширина: введите корректное число");
@@ -78,7 +78,7 @@ namespace View
                 isValid = false;
             }
 
-            if (!double.TryParse(textBox2.Text.Replace('.', ','),
+            if (!double.TryParse(_textBoxParameterTwo.Text.Replace('.', ','),
                 out double height))
             {
                 AddError("Высота: введите корректное число");
@@ -98,7 +98,7 @@ namespace View
             bool isValid = true;
             double a = 0, b = 0, c = 0;
 
-            if (!double.TryParse(textBox1.Text.Replace('.', ','), out a))
+            if (!double.TryParse(_textBoxParameterOne.Text.Replace('.', ','), out a))
             {
                 AddError("Сторона A: введите корректное число");
                 isValid = false;
@@ -109,7 +109,7 @@ namespace View
                 isValid = false;
             }
 
-            if (!double.TryParse(textBox2.Text.Replace('.', ','), out b))
+            if (!double.TryParse(_textBoxParameterTwo.Text.Replace('.', ','), out b))
             {
                 AddError("Сторона B: введите корректное число");
                 isValid = false;
@@ -120,7 +120,7 @@ namespace View
                 isValid = false;
             }
 
-            if (!double.TryParse(textBox3.Text.Replace('.', ','), out c))
+            if (!double.TryParse(_textBoxParameterThree.Text.Replace('.', ','), out c))
             {
                 AddError("Сторона C: введите корректное число");
                 isValid = false;
@@ -144,43 +144,44 @@ namespace View
         }
 
         /// <summary>
-        /// //TODO: RSDN
-        /// Обрабатывает нажатие кнопки "ОК". Создает фигуру на основе выбранного типа и введенных параметров.
+        /// //TODO: RSDN+
+        /// Обрабатывает нажатие кнопки "ОК". Создает фигуру на основе
+        /// выбранного типа и введенных параметров.
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Аргументы события.</param>
-        private void BtnOk_Click(object sender, EventArgs e)
+        private void ButtonOkClick(object sender, EventArgs e)
         {
             try
             {
-                //TODO: RSDN
-                if (radioButton1.Checked)
+                //TODO: RSDN+
+                if (_radioButtonCircle.Checked)
                 {
-                    double radius = ParseDouble(textBox1.Text);
+                    double radius = ParseDouble(_textBoxParameterOne.Text);
                     CreatedShape = new Circle(radius);
                 }
-                else if (radioButton2.Checked)
+                else if (_radioButtonRectangle.Checked)
                 {
-                    double width = ParseDouble(textBox1.Text);
-                    double height = ParseDouble(textBox2.Text);
+                    double width = ParseDouble(_textBoxParameterOne.Text);
+                    double height = ParseDouble(_textBoxParameterTwo.Text);
                     CreatedShape = new Model.Rectangle(width, height);
                 }
                 else
                 {
-                    double a = ParseDouble(textBox1.Text);
-                    double b = ParseDouble(textBox2.Text);
-                    double c = ParseDouble(textBox3.Text);
+                    double a = ParseDouble(_textBoxParameterOne.Text);
+                    double b = ParseDouble(_textBoxParameterTwo.Text);
+                    double c = ParseDouble(_textBoxParameterThree.Text);
                     CreatedShape = new Triangle(a, b, c);
                 }
 
                 DialogResult = DialogResult.OK;
 
-                textBox1.Clear();
-                textBox2.Clear();
-                textBox3.Clear();
-                radioButton1.Checked = true;
+                _textBoxParameterOne.Clear();
+                _textBoxParameterTwo.Clear();
+                _textBoxParameterThree.Clear();
+                _radioButtonCircle.Checked = true;
 
-                RadioButton1_CheckedChanged(null, null);
+                RadioButtonCircleCheckedChanged(null, null);
             }
             catch (ArgumentException ex)
             {
@@ -195,12 +196,13 @@ namespace View
         }
 
         /// <summary>
-        /// //TODO: RSDN
-        /// Обрабатывает нажатие кнопки "Случайная фигура". Генерирует и отображает случайную фигуру.
+        /// //TODO: RSDN+
+        /// Обрабатывает нажатие кнопки "Случайная фигура".
+        /// Генерирует и отображает случайную фигуру.
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Аргументы события.</param>
-        private void BtnRandom_Click(object sender, EventArgs e)
+        private void ButtonRandomClick(object sender, EventArgs e)
         {
             ShapeBase randomShape = ShapeGenerator.GetRandomShape();
 
@@ -208,40 +210,41 @@ namespace View
             {
                 case Circle circle:
                 {
-                    radioButton1.Checked = true;
-                    textBox1.Text = circle.Radius.ToString();
+                    _radioButtonCircle.Checked = true;
+                    _textBoxParameterOne.Text = circle.Radius.ToString();
                     break;
                 }
                 case Model.Rectangle rect:
                 {
-                    radioButton2.Checked = true;
-                    textBox1.Text = rect.Width.ToString();
-                    textBox2.Text = rect.Height.ToString();
+                    _radioButtonRectangle.Checked = true;
+                    _textBoxParameterOne.Text = rect.Width.ToString();
+                    _textBoxParameterTwo.Text = rect.Height.ToString();
                     break;
                 }
                 case Triangle triangle:
                 {
-                    radioButton3.Checked = true;
-                    textBox1.Text = triangle.SideA.ToString();
-                    textBox2.Text = triangle.SideB.ToString();
-                    textBox3.Text = triangle.SideC.ToString();
+                    _radioButtonTriangle.Checked = true;
+                    _textBoxParameterOne.Text = triangle.SideA.ToString();
+                    _textBoxParameterTwo.Text = triangle.SideB.ToString();
+                    _textBoxParameterThree.Text = triangle.SideC.ToString();
                     break;
                 }
             }
         }
-        //TODO: RSDN
+        //TODO: RSDN+
         /// <summary>
-        /// Обрабатывает изменение выбора радио-кнопки для круга. Настраивает интерфейс для ввода радиуса.
+        /// Обрабатывает изменение выбора радио-кнопки для круга.
+        /// Настраивает интерфейс для ввода радиуса.
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Аргументы события.</param>
-        private void RadioButton1_CheckedChanged(object sender, EventArgs e)
+        private void RadioButtonCircleCheckedChanged(object sender, EventArgs e)
         {
-            label1.Text = "Радиус:";
-            label2.Visible = false;
-            label3.Visible = false;
-            textBox2.Visible = false;
-            textBox3.Visible = false;
+            _labelParameterOne.Text = "Радиус:";
+            _labelParameterTwo.Visible = false;
+            _labelParameterThree.Visible = false;
+            _textBoxParameterTwo.Visible = false;
+            _textBoxParameterThree.Visible = false;
         }
 
         /// <summary>
@@ -249,14 +252,14 @@ namespace View
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Аргументы события.</param>
-        private void RadioButton2_CheckedChanged(object sender, EventArgs e)
+        private void RadioButtonRectangleCheckedChanged(object sender, EventArgs e)
         {
-            label1.Text = "Ширина:";
-            label2.Text = "Высота:";
-            label2.Visible = true;
-            label3.Visible = false;
-            textBox2.Visible = true;
-            textBox3.Visible = false;
+            _labelParameterOne.Text = "Ширина:";
+            _labelParameterTwo.Text = "Высота:";
+            _labelParameterTwo.Visible = true;
+            _labelParameterThree.Visible = false;
+            _textBoxParameterTwo.Visible = true;
+            _textBoxParameterThree.Visible = false;
         }
 
         /// <summary>
@@ -264,15 +267,15 @@ namespace View
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Аргументы события.</param>
-        private void RadioButton3_CheckedChanged(object sender, EventArgs e)
+        private void RadioButtonTriangleCheckedChanged(object sender, EventArgs e)
         {
-            label1.Text = "Сторона A:";
-            label2.Text = "Сторона B:";
-            label3.Text = "Сторона C:";
-            label2.Visible = true;
-            label3.Visible = true;
-            textBox2.Visible = true;
-            textBox3.Visible = true;
+            _labelParameterOne.Text = "Сторона A:";
+            _labelParameterTwo.Text = "Сторона B:";
+            _labelParameterThree.Text = "Сторона C:";
+            _labelParameterTwo.Visible = true;
+            _labelParameterThree.Visible = true;
+            _textBoxParameterTwo.Visible = true;
+            _textBoxParameterThree.Visible = true;
         }
     }
 }

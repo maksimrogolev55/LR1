@@ -28,103 +28,103 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtSearch = new TextBox();
-            btnSearch = new Button();
-            dataGridViewResult = new DataGridView();
-            lblCount = new Label();
-            colType = new DataGridViewTextBoxColumn();
-            colInfo = new DataGridViewTextBoxColumn();
-            colArea = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewResult).BeginInit();
+            _textBoxSearch = new TextBox();
+            _buttonSearch = new Button();
+            _dataGridViewResult = new DataGridView();
+            _labelCount = new Label();
+            columnType = new DataGridViewTextBoxColumn();
+            columnInfo = new DataGridViewTextBoxColumn();
+            columnArea = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)_dataGridViewResult).BeginInit();
             SuspendLayout();
             // 
-            // txtSearch
+            // _textBoxSearch
             // 
-            txtSearch.Location = new Point(12, 10);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(379, 23);
-            txtSearch.TabIndex = 0;
+            _textBoxSearch.Location = new Point(12, 10);
+            _textBoxSearch.Name = "_textBoxSearch";
+            _textBoxSearch.Size = new Size(379, 23);
+            _textBoxSearch.TabIndex = 0;
             // 
-            // btnSearch
+            // _buttonSearch
             // 
-            btnSearch.Location = new Point(397, 10);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(75, 23);
-            btnSearch.TabIndex = 1;
-            btnSearch.Text = "Найти";
-            btnSearch.UseVisualStyleBackColor = true;
-            btnSearch.Click += btnSearch_Click;
+            _buttonSearch.Location = new Point(397, 10);
+            _buttonSearch.Name = "_buttonSearch";
+            _buttonSearch.Size = new Size(75, 23);
+            _buttonSearch.TabIndex = 1;
+            _buttonSearch.Text = "Найти";
+            _buttonSearch.UseVisualStyleBackColor = true;
+            _buttonSearch.Click += ButtonSearchClick;
             // 
-            // dataGridViewResult
+            // _dataGridViewResult
             // 
-            dataGridViewResult.AllowUserToAddRows = false;
-            dataGridViewResult.AllowUserToDeleteRows = false;
-            dataGridViewResult.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewResult.Columns.AddRange(new DataGridViewColumn[] { colType, colInfo, colArea });
-            dataGridViewResult.Location = new Point(12, 39);
-            dataGridViewResult.Name = "dataGridViewResult";
-            dataGridViewResult.ReadOnly = true;
-            dataGridViewResult.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewResult.Size = new Size(460, 275);
-            dataGridViewResult.TabIndex = 2;
+            _dataGridViewResult.AllowUserToAddRows = false;
+            _dataGridViewResult.AllowUserToDeleteRows = false;
+            _dataGridViewResult.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            _dataGridViewResult.Columns.AddRange(new DataGridViewColumn[] { columnType, columnInfo, columnArea });
+            _dataGridViewResult.Location = new Point(12, 39);
+            _dataGridViewResult.Name = "_dataGridViewResult";
+            _dataGridViewResult.ReadOnly = true;
+            _dataGridViewResult.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            _dataGridViewResult.Size = new Size(460, 275);
+            _dataGridViewResult.TabIndex = 2;
             // 
-            // lblCount
+            // _labelCount
             // 
-            lblCount.AutoSize = true;
-            lblCount.Location = new Point(12, 317);
-            lblCount.Name = "lblCount";
-            lblCount.Size = new Size(104, 15);
-            lblCount.TabIndex = 3;
-            lblCount.Text = "Найдено фигур: 0";
+            _labelCount.AutoSize = true;
+            _labelCount.Location = new Point(12, 317);
+            _labelCount.Name = "_labelCount";
+            _labelCount.Size = new Size(104, 15);
+            _labelCount.TabIndex = 3;
+            _labelCount.Text = "Найдено фигур: 0";
             // 
-            // colType
+            // columnType
             // 
-            colType.HeaderText = "Тип";
-            colType.Name = "colType";
-            colType.ReadOnly = true;
+            columnType.HeaderText = "Тип";
+            columnType.Name = "columnType";
+            columnType.ReadOnly = true;
             // 
-            // colInfo
+            // columnInfo
             // 
-            colInfo.HeaderText = "Информация\t";
-            colInfo.Name = "colInfo";
-            colInfo.ReadOnly = true;
-            colInfo.Width = 235;
+            columnInfo.HeaderText = "Информация\t";
+            columnInfo.Name = "columnInfo";
+            columnInfo.ReadOnly = true;
+            columnInfo.Width = 235;
             // 
-            // colArea
+            // columnArea
             // 
-            colArea.HeaderText = "Площадь";
-            colArea.Name = "colArea";
-            colArea.ReadOnly = true;
-            colArea.Width = 80;
+            columnArea.HeaderText = "Площадь";
+            columnArea.Name = "columnArea";
+            columnArea.ReadOnly = true;
+            columnArea.Width = 80;
             // 
             // SearchForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(484, 341);
-            Controls.Add(lblCount);
-            Controls.Add(dataGridViewResult);
-            Controls.Add(btnSearch);
-            Controls.Add(txtSearch);
+            Controls.Add(_labelCount);
+            Controls.Add(_dataGridViewResult);
+            Controls.Add(_buttonSearch);
+            Controls.Add(_textBoxSearch);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "SearchForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Поиск фигур";
-            ((System.ComponentModel.ISupportInitialize)dataGridViewResult).EndInit();
+            ((System.ComponentModel.ISupportInitialize)_dataGridViewResult).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private TextBox txtSearch;
-        private Button btnSearch;
-        private DataGridView dataGridViewResult;
-        private Label lblCount;
-        private DataGridViewTextBoxColumn colType;
-        private DataGridViewTextBoxColumn colInfo;
-        private DataGridViewTextBoxColumn colArea;
+        private TextBox _textBoxSearch;
+        private Button _buttonSearch;
+        private DataGridView _dataGridViewResult;
+        private Label _labelCount;
+        private DataGridViewTextBoxColumn columnType;
+        private DataGridViewTextBoxColumn columnInfo;
+        private DataGridViewTextBoxColumn columnArea;
     }
 }

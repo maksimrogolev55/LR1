@@ -28,194 +28,194 @@
         /// </summary>
         private void InitializeComponent()
         {
-            groupBox1 = new GroupBox();
-            radioButton3 = new RadioButton();
-            radioButton2 = new RadioButton();
-            radioButton1 = new RadioButton();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            btnRandom = new Button();
-            btnOk = new Button();
-            btnCancel = new Button();
-            groupBox1.SuspendLayout();
+            _groupBoxShapeType = new GroupBox();
+            _radioButtonTriangle = new RadioButton();
+            _radioButtonRectangle = new RadioButton();
+            _radioButtonCircle = new RadioButton();
+            _labelParameterOne = new Label();
+            _labelParameterTwo = new Label();
+            _labelParameterThree = new Label();
+            _textBoxParameterOne = new TextBox();
+            _textBoxParameterTwo = new TextBox();
+            _textBoxParameterThree = new TextBox();
+            _buttonRandom = new Button();
+            _buttonOk = new Button();
+            _buttonCancel = new Button();
+            _groupBoxShapeType.SuspendLayout();
             SuspendLayout();
             // 
-            // groupBox1
+            // _groupBoxShapeType
             // 
-            groupBox1.Controls.Add(radioButton3);
-            groupBox1.Controls.Add(radioButton2);
-            groupBox1.Controls.Add(radioButton1);
-            groupBox1.Location = new Point(12, 12);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(260, 100);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Тип фигуры";
+            _groupBoxShapeType.Controls.Add(_radioButtonTriangle);
+            _groupBoxShapeType.Controls.Add(_radioButtonRectangle);
+            _groupBoxShapeType.Controls.Add(_radioButtonCircle);
+            _groupBoxShapeType.Location = new Point(12, 12);
+            _groupBoxShapeType.Name = "_groupBoxShapeType";
+            _groupBoxShapeType.Size = new Size(260, 100);
+            _groupBoxShapeType.TabIndex = 0;
+            _groupBoxShapeType.TabStop = false;
+            _groupBoxShapeType.Text = "Тип фигуры";
             // 
-            // radioButton3
+            // _radioButtonTriangle
             // 
-            radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(6, 65);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(96, 19);
-            radioButton3.TabIndex = 2;
-            radioButton3.Text = "Треугольник";
-            radioButton3.UseVisualStyleBackColor = true;
-            radioButton3.CheckedChanged += RadioButton3_CheckedChanged;
+            _radioButtonTriangle.AutoSize = true;
+            _radioButtonTriangle.Location = new Point(6, 65);
+            _radioButtonTriangle.Name = "_radioButtonTriangle";
+            _radioButtonTriangle.Size = new Size(96, 19);
+            _radioButtonTriangle.TabIndex = 2;
+            _radioButtonTriangle.Text = "Треугольник";
+            _radioButtonTriangle.UseVisualStyleBackColor = true;
+            _radioButtonTriangle.CheckedChanged += RadioButtonTriangleCheckedChanged;
             // 
-            // radioButton2
+            // _radioButtonRectangle
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(6, 42);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(114, 19);
-            radioButton2.TabIndex = 1;
-            radioButton2.Text = "Прямоугольник";
-            radioButton2.UseVisualStyleBackColor = true;
-            radioButton2.CheckedChanged += RadioButton2_CheckedChanged;
+            _radioButtonRectangle.AutoSize = true;
+            _radioButtonRectangle.Location = new Point(6, 42);
+            _radioButtonRectangle.Name = "_radioButtonRectangle";
+            _radioButtonRectangle.Size = new Size(114, 19);
+            _radioButtonRectangle.TabIndex = 1;
+            _radioButtonRectangle.Text = "Прямоугольник";
+            _radioButtonRectangle.UseVisualStyleBackColor = true;
+            _radioButtonRectangle.CheckedChanged += RadioButtonRectangleCheckedChanged;
             // 
-            // radioButton1
+            // _radioButtonCircle
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Checked = true;
-            radioButton1.Location = new Point(6, 19);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(50, 19);
-            radioButton1.TabIndex = 0;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Круг";
-            radioButton1.UseVisualStyleBackColor = true;
-            radioButton1.CheckedChanged += RadioButton1_CheckedChanged;
+            _radioButtonCircle.AutoSize = true;
+            _radioButtonCircle.Checked = true;
+            _radioButtonCircle.Location = new Point(6, 19);
+            _radioButtonCircle.Name = "_radioButtonCircle";
+            _radioButtonCircle.Size = new Size(50, 19);
+            _radioButtonCircle.TabIndex = 0;
+            _radioButtonCircle.TabStop = true;
+            _radioButtonCircle.Text = "Круг";
+            _radioButtonCircle.UseVisualStyleBackColor = true;
+            _radioButtonCircle.CheckedChanged += RadioButtonCircleCheckedChanged;
             // 
-            // label1
+            // _labelParameterOne
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 125);
-            label1.Name = "label1";
-            label1.Size = new Size(48, 15);
-            label1.TabIndex = 1;
-            label1.Text = "Радиус:";
+            _labelParameterOne.AutoSize = true;
+            _labelParameterOne.Location = new Point(12, 125);
+            _labelParameterOne.Name = "_labelParameterOne";
+            _labelParameterOne.Size = new Size(48, 15);
+            _labelParameterOne.TabIndex = 1;
+            _labelParameterOne.Text = "Радиус:";
             // 
-            // label2
+            // _labelParameterTwo
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(12, 155);
-            label2.Name = "label2";
-            label2.Size = new Size(50, 15);
-            label2.TabIndex = 2;
-            label2.Text = "Высота:";
-            label2.Visible = false;
+            _labelParameterTwo.AutoSize = true;
+            _labelParameterTwo.Location = new Point(12, 155);
+            _labelParameterTwo.Name = "_labelParameterTwo";
+            _labelParameterTwo.Size = new Size(50, 15);
+            _labelParameterTwo.TabIndex = 2;
+            _labelParameterTwo.Text = "Высота:";
+            _labelParameterTwo.Visible = false;
             // 
-            // label3
+            // _labelParameterThree
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(12, 185);
-            label3.Name = "label3";
-            label3.Size = new Size(68, 15);
-            label3.TabIndex = 3;
-            label3.Text = "Сторона C:";
-            label3.Visible = false;
+            _labelParameterThree.AutoSize = true;
+            _labelParameterThree.Location = new Point(12, 185);
+            _labelParameterThree.Name = "_labelParameterThree";
+            _labelParameterThree.Size = new Size(68, 15);
+            _labelParameterThree.TabIndex = 3;
+            _labelParameterThree.Text = "Сторона C:";
+            _labelParameterThree.Visible = false;
             // 
-            // textBox1
+            // _textBoxParameterOne
             // 
-            textBox1.Location = new Point(80, 122);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(192, 23);
-            textBox1.TabIndex = 4;
+            _textBoxParameterOne.Location = new Point(80, 122);
+            _textBoxParameterOne.Name = "_textBoxParameterOne";
+            _textBoxParameterOne.Size = new Size(192, 23);
+            _textBoxParameterOne.TabIndex = 4;
             // 
-            // textBox2
+            // _textBoxParameterTwo
             // 
-            textBox2.Location = new Point(80, 152);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(192, 23);
-            textBox2.TabIndex = 5;
-            textBox2.Visible = false;
+            _textBoxParameterTwo.Location = new Point(80, 152);
+            _textBoxParameterTwo.Name = "_textBoxParameterTwo";
+            _textBoxParameterTwo.Size = new Size(192, 23);
+            _textBoxParameterTwo.TabIndex = 5;
+            _textBoxParameterTwo.Visible = false;
             // 
-            // textBox3
+            // _textBoxParameterThree
             // 
-            textBox3.Location = new Point(80, 182);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(192, 23);
-            textBox3.TabIndex = 6;
-            textBox3.Visible = false;
+            _textBoxParameterThree.Location = new Point(80, 182);
+            _textBoxParameterThree.Name = "_textBoxParameterThree";
+            _textBoxParameterThree.Size = new Size(192, 23);
+            _textBoxParameterThree.TabIndex = 6;
+            _textBoxParameterThree.Visible = false;
             // 
-            // btnRandom
+            // _buttonRandom
             // 
-            btnRandom.Location = new Point(197, 211);
-            btnRandom.Name = "btnRandom";
-            btnRandom.Size = new Size(75, 23);
-            btnRandom.TabIndex = 7;
-            btnRandom.Text = "Случайно";
-            btnRandom.UseVisualStyleBackColor = true;
-            btnRandom.Click += BtnRandom_Click;
+            _buttonRandom.Location = new Point(197, 211);
+            _buttonRandom.Name = "_buttonRandom";
+            _buttonRandom.Size = new Size(75, 23);
+            _buttonRandom.TabIndex = 7;
+            _buttonRandom.Text = "Случайно";
+            _buttonRandom.UseVisualStyleBackColor = true;
+            _buttonRandom.Click += ButtonRandomClick;
             // 
-            // btnOk
+            // _buttonOk
             // 
-            btnOk.Location = new Point(12, 211);
-            btnOk.Name = "btnOk";
-            btnOk.Size = new Size(75, 23);
-            btnOk.TabIndex = 8;
-            btnOk.Text = "Ок";
-            btnOk.UseVisualStyleBackColor = true;
-            btnOk.Click += BtnOk_Click;
+            _buttonOk.Location = new Point(12, 211);
+            _buttonOk.Name = "_buttonOk";
+            _buttonOk.Size = new Size(75, 23);
+            _buttonOk.TabIndex = 8;
+            _buttonOk.Text = "Ок";
+            _buttonOk.UseVisualStyleBackColor = true;
+            _buttonOk.Click += ButtonOkClick;
             // 
-            // btnCancel
+            // _buttonCancel
             // 
-            btnCancel.DialogResult = DialogResult.Cancel;
-            btnCancel.Location = new Point(93, 211);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(75, 23);
-            btnCancel.TabIndex = 9;
-            btnCancel.Text = "Отмэна";
-            btnCancel.UseVisualStyleBackColor = true;
+            _buttonCancel.DialogResult = DialogResult.Cancel;
+            _buttonCancel.Location = new Point(93, 211);
+            _buttonCancel.Name = "_buttonCancel";
+            _buttonCancel.Size = new Size(75, 23);
+            _buttonCancel.TabIndex = 9;
+            _buttonCancel.Text = "Отмэна";
+            _buttonCancel.UseVisualStyleBackColor = true;
             // 
             // AddShapeForm
             // 
-            AcceptButton = btnOk;
+            AcceptButton = _buttonOk;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            CancelButton = btnCancel;
+            CancelButton = _buttonCancel;
             ClientSize = new Size(284, 281);
-            Controls.Add(btnCancel);
-            Controls.Add(btnOk);
-            Controls.Add(btnRandom);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(groupBox1);
+            Controls.Add(_buttonCancel);
+            Controls.Add(_buttonOk);
+            Controls.Add(_buttonRandom);
+            Controls.Add(_textBoxParameterThree);
+            Controls.Add(_textBoxParameterTwo);
+            Controls.Add(_textBoxParameterOne);
+            Controls.Add(_labelParameterThree);
+            Controls.Add(_labelParameterTwo);
+            Controls.Add(_labelParameterOne);
+            Controls.Add(_groupBoxShapeType);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "AddShapeForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Добавление фигуры";
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            _groupBoxShapeType.ResumeLayout(false);
+            _groupBoxShapeType.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private GroupBox groupBox1;
-        private RadioButton radioButton3;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private Button btnRandom;
-        private Button btnOk;
-        private Button btnCancel;
+        private GroupBox _groupBoxShapeType;
+        private RadioButton _radioButtonTriangle;
+        private RadioButton _radioButtonRectangle;
+        private RadioButton _radioButtonCircle;
+        private Label _labelParameterOne;
+        private Label _labelParameterTwo;
+        private Label _labelParameterThree;
+        private TextBox _textBoxParameterOne;
+        private TextBox _textBoxParameterTwo;
+        private TextBox _textBoxParameterThree;
+        private Button _buttonRandom;
+        private Button _buttonOk;
+        private Button _buttonCancel;
     }
 }

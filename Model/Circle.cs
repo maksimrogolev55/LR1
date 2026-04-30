@@ -8,6 +8,11 @@ namespace Model
     public class Circle : ShapeBase
     {
         /// <summary>
+        /// Конструктор по умолчанию для сериализации.
+        /// </summary>
+        public Circle() { }
+
+        /// <summary>
         /// Радиус круга.
         /// </summary>
         private double _radius;
