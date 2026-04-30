@@ -38,7 +38,7 @@
 
         /// <summary>
         /// Получает или задает ширину прямоугольника.
-        /// </exception>
+        /// <summary>
         public double Width
         {
             get

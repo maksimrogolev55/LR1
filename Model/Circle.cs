@@ -32,7 +32,7 @@ namespace Model
 
         /// <summary>
         /// Получает или задает радиус круга.
-        /// </exception>
+        /// <summary>
         public double Radius
         {
             get

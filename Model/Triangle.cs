@@ -70,7 +70,7 @@ public override void Validate()
 
         /// <summary>
         /// Получает или задает сторону A.
-        /// </exception>
+        /// <summary>
         public double SideA
         {
             get
@@ -85,7 +85,7 @@ public override void Validate()
 
         /// <summary>
         /// Получает или задает сторону B.
-        /// </exception>
+        /// <summary>
         public double SideB
         {
             get
@@ -100,7 +100,7 @@ public override void Validate()
 
         /// <summary>
         /// Получает или задает сторону C.
-        /// </exception>
+        /// <summary>
         public double SideC
         {
             get
