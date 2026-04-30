@@ -30,15 +30,15 @@
         {
             groupBox1 = new GroupBox();
             dataGridViewShapes = new DataGridView();
+            colType = new DataGridViewTextBoxColumn();
+            colInfo = new DataGridViewTextBoxColumn();
+            colArea = new DataGridViewTextBoxColumn();
             btnAdd = new Button();
             btnRemove = new Button();
             btnSearch = new Button();
             btnSave = new Button();
             btnLoad = new Button();
             labelCount = new Label();
-            colType = new DataGridViewTextBoxColumn();
-            colInfo = new DataGridViewTextBoxColumn();
-            colArea = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewShapes).BeginInit();
             SuspendLayout();
@@ -67,65 +67,6 @@
             dataGridViewShapes.Size = new Size(554, 278);
             dataGridViewShapes.TabIndex = 0;
             // 
-            // btnAdd
-            // 
-            btnAdd.Location = new Point(413, 343);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(75, 23);
-            btnAdd.TabIndex = 1;
-            btnAdd.Text = "Добавить";
-            btnAdd.UseVisualStyleBackColor = true;
-            btnAdd.Click += btnAdd_Click;
-            // 
-            // btnRemove
-            // 
-            btnRemove.Location = new Point(494, 343);
-            btnRemove.Name = "btnRemove";
-            btnRemove.Size = new Size(75, 23);
-            btnRemove.TabIndex = 2;
-            btnRemove.Text = "Удалить";
-            btnRemove.UseVisualStyleBackColor = true;
-            btnRemove.Click += btnRemove_Click;
-            // 
-            // btnSearch
-            // 
-            btnSearch.Location = new Point(494, 314);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(75, 23);
-            btnSearch.TabIndex = 3;
-            btnSearch.Text = "Поиск";
-            btnSearch.UseVisualStyleBackColor = true;
-            btnSearch.Click += btnSearch_Click;
-            // 
-            // btnSave
-            // 
-            btnSave.Location = new Point(15, 314);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(75, 23);
-            btnSave.TabIndex = 4;
-            btnSave.Text = "Сохранить";
-            btnSave.UseVisualStyleBackColor = true;
-            btnSave.Click += btnSave_Click;
-            // 
-            // btnLoad
-            // 
-            btnLoad.Location = new Point(96, 314);
-            btnLoad.Name = "btnLoad";
-            btnLoad.Size = new Size(75, 23);
-            btnLoad.TabIndex = 5;
-            btnLoad.Text = "Загрузить";
-            btnLoad.UseVisualStyleBackColor = true;
-            btnLoad.Click += btnLoad_Click;
-            // 
-            // labelCount
-            // 
-            labelCount.AutoSize = true;
-            labelCount.Location = new Point(401, 318);
-            labelCount.Name = "labelCount";
-            labelCount.Size = new Size(87, 15);
-            labelCount.TabIndex = 6;
-            labelCount.Text = "Всего фигур: 0";
-            // 
             // colType
             // 
             colType.HeaderText = "Тип";
@@ -145,6 +86,65 @@
             colArea.Name = "colArea";
             colArea.ReadOnly = true;
             colArea.Width = 80;
+            // 
+            // btnAdd
+            // 
+            btnAdd.Location = new Point(15, 346);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(75, 23);
+            btnAdd.TabIndex = 1;
+            btnAdd.Text = "Добавить";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += BtnAdd_Click;
+            // 
+            // btnRemove
+            // 
+            btnRemove.Location = new Point(15, 375);
+            btnRemove.Name = "btnRemove";
+            btnRemove.Size = new Size(75, 23);
+            btnRemove.TabIndex = 2;
+            btnRemove.Text = "Удалить";
+            btnRemove.UseVisualStyleBackColor = true;
+            btnRemove.Click += BtnRemove_Click;
+            // 
+            // btnSearch
+            // 
+            btnSearch.Location = new Point(15, 314);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(75, 23);
+            btnSearch.TabIndex = 3;
+            btnSearch.Text = "Поиск";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += BtnSearch_Click;
+            // 
+            // btnSave
+            // 
+            btnSave.Location = new Point(413, 314);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(75, 23);
+            btnSave.TabIndex = 4;
+            btnSave.Text = "Сохранить";
+            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += BtnSave_Click;
+            // 
+            // btnLoad
+            // 
+            btnLoad.Location = new Point(494, 314);
+            btnLoad.Name = "btnLoad";
+            btnLoad.Size = new Size(75, 23);
+            btnLoad.TabIndex = 5;
+            btnLoad.Text = "Загрузить";
+            btnLoad.UseVisualStyleBackColor = true;
+            btnLoad.Click += BtnLoad_Click;
+            // 
+            // labelCount
+            // 
+            labelCount.AutoSize = true;
+            labelCount.Location = new Point(96, 318);
+            labelCount.Name = "labelCount";
+            labelCount.Size = new Size(87, 15);
+            labelCount.TabIndex = 6;
+            labelCount.Text = "Всего фигур: 0";
             // 
             // MainForm
             // 

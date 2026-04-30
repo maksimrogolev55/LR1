@@ -5,7 +5,10 @@
     /// </summary>
     public class Rectangle : ShapeBase
     {
-        //TODO: XML
+        //TODO: XML+
+        /// <summary>
+        /// Конструктор по умолчанию для сериализации.
+        /// </summary>
         public Rectangle() { }
 
         /// <summary>
@@ -85,12 +88,16 @@
         /// <returns>Строка с информацией о прямоугольнике.</returns>
         public override string GetInfo()
         {
-            return $"Прямоугольник: ширина = {_width.ToString(DoubleFormat)}, " +
+            return $"Прямоугольник: ширина = " +
+                   $"{_width.ToString(DoubleFormat)}, " +
                    $"высота = {_height.ToString(DoubleFormat)}, " +
                    $"площадь = {CalculateArea().ToString(DoubleFormat)}";
         }
 
-        //TODO: XML
+        //TODO: XML+
+        /// <summary>
+        /// Возвращает тип фигуры.
+        /// </summary>
         public override string GetShapeType()
         {
             return "Прямоугольник";

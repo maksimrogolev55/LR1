@@ -18,7 +18,7 @@ namespace Model
         /// <summary>
         /// Формат вывода чисел с плавающей точкой.
         /// </summary>
-        protected const string DoubleFormat = "F2";
+        public const string DoubleFormat = "F2";
 
         /// <summary>
         /// Проверяет, что значение положительное.
@@ -35,8 +35,8 @@ namespace Model
             if (value <= MinValue)
             {
                 throw new ArgumentException(
-                    $"Параметр '{paramName}' должен быть положительным. " +
-                    $"Получено: {value}");
+                    $"Параметр '{paramName}' должен быть " +
+                    $"положительным. Получено: {value}");
             }
         }
 
@@ -52,7 +52,10 @@ namespace Model
         /// <returns>Строка с информацией о фигуре.</returns>
         public abstract string GetInfo();
 
-        //TODO: XML
+        //TODO: XML+
+        /// <summary>
+        /// Возвращает тип фигуры.
+        /// </summary>
         public abstract string GetShapeType();
     }
 }

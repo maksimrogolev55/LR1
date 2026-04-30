@@ -7,7 +7,10 @@ namespace Model
     /// </summary>
     public class Triangle : ShapeBase
     {
-        //TODO: XML
+        //TODO: XML+
+        /// <summary>
+        /// Конструктор по умолчанию для сериализации.
+        /// </summary>
         public Triangle() { }
 
         /// <summary>
@@ -144,12 +147,16 @@ namespace Model
         public override string GetInfo()
         {
             return $"Треугольник: стороны = " +
-                   $"{_sideA.ToString(DoubleFormat)}, {_sideB.ToString(DoubleFormat)}, " +
+                   $"{_sideA.ToString(DoubleFormat)}, " +
+                   $"{_sideB.ToString(DoubleFormat)}, " +
                    $"{_sideC.ToString(DoubleFormat)}, " +
                    $"площадь = {CalculateArea().ToString(DoubleFormat)}";
         }
 
-        //TODO: XML
+        //TODO: XML+
+        /// <summary>
+        /// Возвращает тип фигуры.
+        /// </summary>
         public override string GetShapeType()
         {
             return "Треугольник";

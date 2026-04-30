@@ -12,7 +12,10 @@ namespace View
     /// </summary>
     public partial class MainForm : Form
     {
-        //TODO: XML
+        //TODO: XML+
+        /// <summary>
+        /// Список геометрических фигур.
+        /// </summary>
         private List<ShapeBase> _shapes;
 
         /// <summary>
@@ -23,6 +26,26 @@ namespace View
             InitializeComponent();
             _shapes = new List<ShapeBase>();
             UpdateGrid();
+        }
+
+        /// <summary>
+        /// Формат вывода площади.
+        /// </summary>
+        public const string AreaFormat = "F2";
+
+        /// <summary>
+        /// Создает и возвращает сериализатор для списка фигур.
+        /// </summary>
+        /// <returns>Сериализатор для работы с XML.</returns>
+        private XmlSerializer GetShapeSerializer()
+        {
+            Type[] shapeTypes = new Type[]
+            {
+        typeof(Circle),
+        typeof(Model.Rectangle),
+        typeof(Triangle)
+            };
+            return new XmlSerializer(typeof(List<ShapeBase>), shapeTypes);
         }
 
         /// <summary>
@@ -47,33 +70,59 @@ namespace View
                 dataGridViewShapes.Rows.Add(
                     shape.GetShapeType(),
                     cleanInfo,
-                    //TODO: duplication
-                    shape.CalculateArea().ToString("F2")
+                    //TODO: duplication+
+                    shape.CalculateArea().ToString(AreaFormat)
                 );
             }
 
             labelCount.Text = $"Всего фигур: {_shapes.Count}";
         }
 
-        //TODO: RSDN
+        //TODO: RSDN+
         /// <summary>
         /// Обрабатывает нажатие кнопки "Удалить". Удаляет выбранную фигуру из списка.
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Аргументы события.</param>
-        private void btnRemove_Click(object sender, EventArgs e)
+        private void BtnRemove_Click(object sender, EventArgs e)
         {
-            if (dataGridViewShapes.SelectedRows.Count > 0)
+            if (dataGridViewShapes.SelectedRows.Count == 0)
             {
-                int index = dataGridViewShapes.SelectedRows[0].Index;
-                _shapes.RemoveAt(index);
-                UpdateGrid();
-            }
-            else
-            {
-                MessageBox.Show("Выберите фигуру для удаления.", "Удаление",
+                MessageBox.Show("Выберите фигуры для удаления.", "Удаление",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
+
+            // Подтверждение удаления
+            DialogResult result = MessageBox.Show(
+                $"Удалить выбранные фигуры ({dataGridViewShapes.SelectedRows.Count})?",
+                "Подтверждение удаления",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result != DialogResult.Yes)
+            {
+                return;
+            }
+
+            // Собираем индексы выбранных строк (от большего к меньшему)
+            List<int> indices = new List<int>();
+            foreach (DataGridViewRow row in dataGridViewShapes.SelectedRows)
+            {
+                indices.Add(row.Index);
+            }
+            indices.Sort((a, b) => b.CompareTo(a));
+
+            // Удаляем по индексам
+            foreach (int index in indices)
+            {
+                if (index < _shapes.Count)
+                {
+                    _shapes.RemoveAt(index);
+                }
+            }
+
+            UpdateGrid();
         }
 
         /// <summary>
@@ -81,7 +130,7 @@ namespace View
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Аргументы события.</param>
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void BtnSearch_Click(object sender, EventArgs e)
         {
             using (SearchForm searchForm = new SearchForm(_shapes))
             {
@@ -94,7 +143,7 @@ namespace View
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Аргументы события.</param>
-        private void btnSave_Click(object sender, EventArgs e)
+        private void BtnSave_Click(object sender, EventArgs e)
         {
             using (SaveFileDialog saveDialog = new SaveFileDialog())
             {
@@ -105,11 +154,8 @@ namespace View
                 {
                     try
                     {
-                        //TODO: duplication
-                        XmlSerializer serializer = new XmlSerializer(
-                            typeof(List<ShapeBase>),
-                            //TODO: RSDN
-                            new Type[] { typeof(Circle), typeof(Model.Rectangle), typeof(Triangle) });
+                        //TODO: duplication+
+                        XmlSerializer serializer = GetShapeSerializer();
 
                         using (StreamWriter writer = new StreamWriter(saveDialog.FileName))
                         {
@@ -133,7 +179,7 @@ namespace View
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Аргументы события.</param>
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void BtnAdd_Click(object sender, EventArgs e)
         {
             AddShapeForm addForm = new AddShapeForm();
             addForm.ShowDialog();
@@ -150,7 +196,7 @@ namespace View
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Аргументы события.</param>
-        private void btnLoad_Click(object sender, EventArgs e)
+        private void BtnLoad_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openDialog = new OpenFileDialog())
             {
@@ -175,11 +221,9 @@ namespace View
                             return;
                         }
 
-                        //TODO: duplication
-                        XmlSerializer serializer = new XmlSerializer(
-                            typeof(List<ShapeBase>),
-                            //TODO: RSDN
-                            new Type[] { typeof(Circle), typeof(Model.Rectangle), typeof(Triangle) });
+                        //TODO: duplication+
+                        XmlSerializer serializer = GetShapeSerializer();
+                        //TODO: RSDN+
 
                         using (StreamReader reader = new StreamReader(openDialog.FileName))
                         {

@@ -65,7 +65,7 @@
             radioButton3.TabIndex = 2;
             radioButton3.Text = "Треугольник";
             radioButton3.UseVisualStyleBackColor = true;
-            radioButton3.CheckedChanged += radioButton3_CheckedChanged;
+            radioButton3.CheckedChanged += RadioButton3_CheckedChanged;
             // 
             // radioButton2
             // 
@@ -76,7 +76,7 @@
             radioButton2.TabIndex = 1;
             radioButton2.Text = "Прямоугольник";
             radioButton2.UseVisualStyleBackColor = true;
-            radioButton2.CheckedChanged += radioButton2_CheckedChanged;
+            radioButton2.CheckedChanged += RadioButton2_CheckedChanged;
             // 
             // radioButton1
             // 
@@ -89,7 +89,7 @@
             radioButton1.TabStop = true;
             radioButton1.Text = "Круг";
             radioButton1.UseVisualStyleBackColor = true;
-            radioButton1.CheckedChanged += radioButton1_CheckedChanged;
+            radioButton1.CheckedChanged += RadioButton1_CheckedChanged;
             // 
             // label1
             // 
@@ -151,7 +151,7 @@
             btnRandom.TabIndex = 7;
             btnRandom.Text = "Случайно";
             btnRandom.UseVisualStyleBackColor = true;
-            btnRandom.Click += btnRandom_Click;
+            btnRandom.Click += BtnRandom_Click;
             // 
             // btnOk
             // 
@@ -161,7 +161,7 @@
             btnOk.TabIndex = 8;
             btnOk.Text = "Ок";
             btnOk.UseVisualStyleBackColor = true;
-            btnOk.Click += btnOk_Click;
+            btnOk.Click += BtnOk_Click;
             // 
             // btnCancel
             // 

@@ -62,7 +62,10 @@ namespace Model
                    $"площадь = {CalculateArea().ToString(DoubleFormat)}";
         }
 
-        //TODO: XML
+        //TODO: XML+
+        /// <summary>
+        /// Возвращает тип фигуры.
+        /// </summary>
         public override string GetShapeType()
         {
             return "Круг";
