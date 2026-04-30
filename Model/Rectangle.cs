@@ -33,13 +33,11 @@
         {
             Width = width;
             Height = height;
+            Validate();
         }
 
         /// <summary>
         /// Получает или задает ширину прямоугольника.
-        /// </summary>
-        /// <exception cref="ArgumentException">
-        /// Выбрасывается, если ширина меньше или равна 0.
         /// </exception>
         public double Width
         {
@@ -49,9 +47,20 @@
             }
             set
             {
-                ValidatePositive(value, nameof(Width));
                 _width = value;
             }
+        }
+
+        /// <summary>
+        /// Проверяет корректность параметров прямоугольника.
+        /// </summary>
+        /// <exception cref="ArgumentException">
+        /// Выбрасывается, если стороны меньше или равны 0.
+        /// </exception>
+        public override void Validate()
+        {
+            ValidatePositive(_width, nameof(Width));
+            ValidatePositive(_height, nameof(Height));
         }
 
         /// <summary>
@@ -68,7 +77,6 @@
             }
             set
             {
-                ValidatePositive(value, nameof(Height));
                 _height = value;
             }
         }

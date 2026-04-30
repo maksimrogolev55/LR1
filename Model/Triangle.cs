@@ -42,37 +42,34 @@ namespace Model
             _sideA = sideA;
             _sideB = sideB;
             _sideC = sideC;
-            ValidateAll();
+            Validate();
         }
 
-        /// <summary>
-        /// Проверяет все условия для сторон треугольника.
-        /// </summary>
-        /// <exception cref="ArgumentException">
-        /// Выбрасывается, если стороны некорректны.
-        /// </exception>
-        private void ValidateAll()
-        {
-            ValidatePositive(_sideA, nameof(SideA));
-            ValidatePositive(_sideB, nameof(SideB));
-            ValidatePositive(_sideC, nameof(SideC));
+/// <summary>
+/// Проверяет корректность параметров треугольника.
+/// </summary>
+/// <exception cref="ArgumentException">
+/// Выбрасывается, если стороны некорректны.
+/// </exception>
+public override void Validate()
+{
+    ValidatePositive(_sideA, nameof(SideA));
+    ValidatePositive(_sideB, nameof(SideB));
+    ValidatePositive(_sideC, nameof(SideC));
 
-            if (_sideA + _sideB <= _sideC ||
-                _sideA + _sideC <= _sideB ||
-                _sideB + _sideC <= _sideA)
-            {
-                throw new ArgumentException(
-                    $"Стороны ({_sideA.ToString(DoubleFormat)}, " +
-                    $"{_sideB.ToString(DoubleFormat)}, " +
-                    $"{_sideC.ToString(DoubleFormat)}) не образуют треугольник.");
-            }
-        }
+    if (_sideA + _sideB <= _sideC ||
+        _sideA + _sideC <= _sideB ||
+        _sideB + _sideC <= _sideA)
+    {
+        throw new ArgumentException(
+            $"Стороны ({_sideA.ToString(DoubleFormat)}, " +
+            $"{_sideB.ToString(DoubleFormat)}, " +
+            $"{_sideC.ToString(DoubleFormat)}) не образуют треугольник.");
+    }
+}
 
         /// <summary>
         /// Получает или задает сторону A.
-        /// </summary>
-        /// <exception cref="ArgumentException">
-        /// Выбрасывается, если сторона некорректна.
         /// </exception>
         public double SideA
         {
@@ -83,15 +80,11 @@ namespace Model
             set
             {
                 _sideA = value;
-                ValidateAll();
             }
         }
 
         /// <summary>
         /// Получает или задает сторону B.
-        /// </summary>
-        /// <exception cref="ArgumentException">
-        /// Выбрасывается, если сторона некорректна.
         /// </exception>
         public double SideB
         {
@@ -102,15 +95,11 @@ namespace Model
             set
             {
                 _sideB = value;
-                ValidateAll();
             }
         }
 
         /// <summary>
         /// Получает или задает сторону C.
-        /// </summary>
-        /// <exception cref="ArgumentException">
-        /// Выбрасывается, если сторона некорректна.
         /// </exception>
         public double SideC
         {
@@ -121,7 +110,6 @@ namespace Model
             set
             {
                 _sideC = value;
-                ValidateAll();
             }
         }
 

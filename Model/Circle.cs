@@ -27,13 +27,11 @@ namespace Model
         public Circle(double radius)
         {
             Radius = radius;
+            Validate();
         }
 
         /// <summary>
         /// Получает или задает радиус круга.
-        /// </summary>
-        /// <exception cref="ArgumentException">
-        /// Выбрасывается, если радиус меньше или равен 0.
         /// </exception>
         public double Radius
         {
@@ -43,10 +41,20 @@ namespace Model
             }
             set
             {
-                ValidatePositive(value, nameof(Radius));
                 _radius = value;
             }
         }
+
+        /// <summary>
+        /// Проверяет корректность параметров круга.
+        /// </summary>
+        /// <exception cref="ArgumentException">
+        /// Выбрасывается, если радиус меньше или равен 0.
+        /// </exception>
+        public override void Validate()
+        {
+            ValidatePositive(_radius, nameof(Radius));
+        }   
 
         /// <summary>
         /// Вычисляет площадь круга.
