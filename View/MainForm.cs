@@ -38,7 +38,6 @@ namespace View
         /// <returns>Сериализатор для работы с XML.</returns>
         private XmlSerializer GetShapeSerializer()
         {
-            //TODО: отступы+
             Type[] shapeTypes = new Type[]
             {
                 typeof(Circle),
@@ -75,7 +74,6 @@ namespace View
             _labelCount.Text = $"Всего фигур: {_shapes.Count}";
         }
 
-        //TODO: RSDN+
         /// <summary>
         /// Обрабатывает нажатие кнопки "Удалить". Удаляет выбранную фигуру из списка.
         /// </summary>
@@ -229,7 +227,6 @@ namespace View
                     }
                     catch (InvalidOperationException)
                     {
-                        //TODO: RSDN+
                         MessageBox.Show("Ошибка: файл повреждён или имеет неверный формат.",
                             "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }

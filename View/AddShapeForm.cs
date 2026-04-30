@@ -22,27 +22,32 @@ namespace View
             InitializeComponent();
 
 #if !DEBUG
+//TODO: RSDN
             btnRandom.Visible = false;
 #endif
         }
-
+        //TODO: XML
         private double ParseDouble(string text)
         {
             return double.Parse(text.Replace('.', ','));
         }
 
+        //TODO: XML
         private List<string> _errors;
 
+        //TODO: remove
         private void ClearErrors()
         {
             _errors = new List<string>();
         }
 
+        //TODO: XML
         private void AddError(string message)
         {
             _errors.Add(message);
         }
 
+        //TODO: remove
         private bool ValidateCircleInput()
         {
             bool isValid = true;
@@ -62,6 +67,7 @@ namespace View
             return isValid;
         }
 
+        //TODO: remove
         private bool ValidateRectangleInput()
         {
             bool isValid = true;
@@ -93,6 +99,7 @@ namespace View
             return isValid;
         }
 
+        //TODO: remove
         private bool ValidateTriangleInput()
         {
             bool isValid = true;
@@ -144,7 +151,6 @@ namespace View
         }
 
         /// <summary>
-        /// //TODO: RSDN+
         /// Обрабатывает нажатие кнопки "ОК". Создает фигуру на основе
         /// выбранного типа и введенных параметров.
         /// </summary>
@@ -154,7 +160,6 @@ namespace View
         {
             try
             {
-                //TODO: RSDN+
                 if (_radioButtonCircle.Checked)
                 {
                     double radius = ParseDouble(_textBoxParameterOne.Text);
@@ -196,7 +201,6 @@ namespace View
         }
 
         /// <summary>
-        /// //TODO: RSDN+
         /// Обрабатывает нажатие кнопки "Случайная фигура".
         /// Генерирует и отображает случайную фигуру.
         /// </summary>
@@ -231,7 +235,7 @@ namespace View
                 }
             }
         }
-        //TODO: RSDN+
+
         /// <summary>
         /// Обрабатывает изменение выбора радио-кнопки для круга.
         /// Настраивает интерфейс для ввода радиуса.
@@ -248,6 +252,7 @@ namespace View
         }
 
         /// <summary>
+        /// //TODO: RSDN
         /// Обрабатывает изменение выбора радио-кнопки для прямоугольника. Настраивает интерфейс для ввода ширины и высоты.
         /// </summary>
         /// <param name="sender">Источник события.</param>
@@ -263,6 +268,7 @@ namespace View
         }
 
         /// <summary>
+        /// //TODO: RSDN
         /// Обрабатывает изменение выбора радио-кнопки для треугольника. Настраивает интерфейс для ввода трех сторон.
         /// </summary>
         /// <param name="sender">Источник события.</param>

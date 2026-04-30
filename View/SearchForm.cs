@@ -31,7 +31,6 @@ namespace View
             _searchResult = new List<ShapeBase>();
         }
 
-        //TODO: RSDN+
         /// <summary>
         /// Обрабатывает нажатие кнопки "Поиск".
         /// Выполняет поиск фигур по введенному тексту.
@@ -52,7 +51,6 @@ namespace View
             }
 
             UpdateResultGrid();
-            //TODO: RSDN+
             _labelCount.Text = $"Найдено фигур: {_searchResult.Count}";
         }
 
