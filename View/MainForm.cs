@@ -12,7 +12,6 @@ namespace View
     /// </summary>
     public partial class MainForm : Form
     {
-        //TODO: XML+
         /// <summary>
         /// Список геометрических фигур.
         /// </summary>
@@ -39,6 +38,7 @@ namespace View
         /// <returns>Сериализатор для работы с XML.</returns>
         private XmlSerializer GetShapeSerializer()
         {
+            //TODО: отступы
             Type[] shapeTypes = new Type[]
             {
         typeof(Circle),
@@ -70,7 +70,6 @@ namespace View
                 dataGridViewShapes.Rows.Add(
                     shape.GetShapeType(),
                     cleanInfo,
-                    //TODO: duplication+
                     shape.CalculateArea().ToString(AreaFormat)
                 );
             }
@@ -154,7 +153,6 @@ namespace View
                 {
                     try
                     {
-                        //TODO: duplication+
                         XmlSerializer serializer = GetShapeSerializer();
 
                         using (StreamWriter writer = new StreamWriter(saveDialog.FileName))
@@ -221,9 +219,7 @@ namespace View
                             return;
                         }
 
-                        //TODO: duplication+
                         XmlSerializer serializer = GetShapeSerializer();
-                        //TODO: RSDN+
 
                         using (StreamReader reader = new StreamReader(openDialog.FileName))
                         {
@@ -236,6 +232,7 @@ namespace View
                     }
                     catch (InvalidOperationException)
                     {
+                        //TODO: RSDN
                         MessageBox.Show("Ошибка: файл повреждён или имеет неверный формат.", "Ошибка",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }

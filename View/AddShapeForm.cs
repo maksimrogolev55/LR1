@@ -144,7 +144,7 @@ namespace View
         }
 
         /// <summary>
-        /// //TODO: RSDN+
+        /// //TODO: RSDN
         /// Обрабатывает нажатие кнопки "ОК". Создает фигуру на основе выбранного типа и введенных параметров.
         /// </summary>
         /// <param name="sender">Источник события.</param>
@@ -153,9 +153,9 @@ namespace View
         {
             try
             {
+                //TODO: RSDN
                 if (radioButton1.Checked)
                 {
-                    //TODO: duplication+
                     double radius = ParseDouble(textBox1.Text);
                     CreatedShape = new Circle(radius);
                 }
@@ -194,23 +194,20 @@ namespace View
             }
         }
 
-        //TODO: RSDN+
         /// <summary>
+        /// //TODO: RSDN
         /// Обрабатывает нажатие кнопки "Случайная фигура". Генерирует и отображает случайную фигуру.
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Аргументы события.</param>
-
         private void BtnRandom_Click(object sender, EventArgs e)
         {
             ShapeBase randomShape = ShapeGenerator.GetRandomShape();
 
             switch (randomShape)
             {
-                //TODO: {}+
                 case Circle circle:
                 {
-                    //TODO: RSDN+
                     radioButton1.Checked = true;
                     textBox1.Text = circle.Radius.ToString();
                     break;
@@ -232,6 +229,7 @@ namespace View
                 }
             }
         }
+        //TODO: RSDN
         /// <summary>
         /// Обрабатывает изменение выбора радио-кнопки для круга. Настраивает интерфейс для ввода радиуса.
         /// </summary>

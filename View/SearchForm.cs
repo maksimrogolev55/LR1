@@ -10,13 +10,11 @@ namespace View
     /// </summary>
     public partial class SearchForm : Form
     {
-        //TODO: XML+
         /// <summary>
         /// Коллекция всех фигур для поиска.
         /// </summary>
         private List<ShapeBase> _allShapes;
 
-        //TODO: XML+
         /// <summary>
         /// Коллекция результатов поиска.
         /// </summary>
@@ -33,6 +31,7 @@ namespace View
             _searchResult = new List<ShapeBase>();
         }
 
+        //TODO: RSDN
         /// <summary>
         /// Обрабатывает нажатие кнопки "Поиск". Выполняет поиск фигур по введенному тексту.
         /// </summary>
@@ -52,6 +51,7 @@ namespace View
             }
 
             UpdateResultGrid();
+            //TODO: RSDN
             lblCount.Text = $"Найдено фигур: {_searchResult.Count}";
         }
 
@@ -67,7 +67,6 @@ namespace View
                 dataGridViewResult.Rows.Add(
                     shape.GetShapeType(),
                     shape.GetInfo(),
-                    //TODO: duplication+
                     shape.CalculateArea().ToString(ShapeBase.DoubleFormat)
                 );
             }
