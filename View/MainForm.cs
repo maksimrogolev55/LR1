@@ -199,51 +199,34 @@ namespace View
             {
                 openDialog.Filter = "Файлы фигур (*.shp)|*.shp";
 
-                if (openDialog.ShowDialog() == DialogResult.OK)
+                if (openDialog.ShowDialog() != DialogResult.OK)
+                    return;
+
+                try
                 {
-                    try
+                    XmlSerializer serializer = GetShapeSerializer();
+                    List<ShapeBase> loadedShapes;
+
+                    using (StreamReader reader = new StreamReader(openDialog.FileName))
                     {
-                        if (!File.Exists(openDialog.FileName))
-                        {
-                            MessageBox.Show("Файл не существует.", "Ошибка",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
-
-                        string content = File.ReadAllText(openDialog.FileName);
-                        if (string.IsNullOrWhiteSpace(content))
-                        {
-                            MessageBox.Show("Файл пуст.", "Ошибка",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
-
-                        XmlSerializer serializer = GetShapeSerializer();
-
-                        using (StreamReader reader = new StreamReader(openDialog.FileName))
-                        {
-                            _shapes = (List<ShapeBase>)serializer.Deserialize(reader);
-                        }
-
-                        foreach (ShapeBase shape in _shapes)
-                        {
-                            shape.Validate();
-                        }
-
-                        UpdateGrid();
-                        MessageBox.Show("Данные загружены успешно.", "Загрузка",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        loadedShapes = (List<ShapeBase>)serializer.Deserialize(reader);
                     }
-                    catch (InvalidOperationException)
+
+                    foreach (ShapeBase shape in loadedShapes)
                     {
-                        MessageBox.Show("Ошибка: файл повреждён или имеет неверный формат.",
-                            "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        shape.Validate();
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Ошибка загрузки: {ex.Message}", "Ошибка",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+
+                    _shapes = loadedShapes;
+                    UpdateGrid();
+
+                    MessageBox.Show("Данные загружены успешно.", "Загрузка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка загрузки: {ex.Message}", "Ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
