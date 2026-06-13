@@ -3,6 +3,7 @@ using NUnit.Framework;
 
 namespace ModelTests
 {
+    //TODO: XML
     public class CircleTests
     {
         [Test(Description = "ShapeBase.Validate() вызывается без исключений через Circle")]
