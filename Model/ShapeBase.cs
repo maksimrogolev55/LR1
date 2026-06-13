@@ -28,14 +28,18 @@ namespace Model
         /// <exception cref="ArgumentException">
         /// Выбрасывается, если значение меньше или равно 0, или равно NaN.
         /// </exception>
-        protected static void ValidatePositive(
-            double value,
-            string paramName)
+        protected static void ValidatePositive(double value, string paramName)
         {
             if (double.IsNaN(value))
             {
                 throw new ArgumentException(
                     $"Параметр '{paramName}' не является числом (NaN).");
+            }
+
+            if (double.IsInfinity(value))
+            {
+                throw new ArgumentException(
+                    $"Параметр '{paramName}' не может быть бесконечным. Получено: {value}");
             }
 
             if (value <= MinValue)
@@ -49,7 +53,10 @@ namespace Model
         /// <summary>
         /// Проверяет корректность параметров фигуры.
         /// </summary>
-        public virtual void Validate() { }
+        public virtual void Validate() 
+        {
+            return;
+        }
 
         /// <summary>
         /// Абстрактный метод вычисления площади.
