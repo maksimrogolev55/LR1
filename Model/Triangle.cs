@@ -7,7 +7,6 @@ namespace Model
     /// </summary>
     public class Triangle : ShapeBase
     {
-        //TODO: XML+
         /// <summary>
         /// Конструктор по умолчанию для сериализации.
         /// </summary>
@@ -141,7 +140,6 @@ public override void Validate()
                    $"площадь = {CalculateArea().ToString(DoubleFormat)}";
         }
 
-        //TODO: XML+
         /// <summary>
         /// Возвращает тип фигуры.
         /// </summary>

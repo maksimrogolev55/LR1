@@ -5,7 +5,6 @@
     /// </summary>
     public class Rectangle : ShapeBase
     {
-        //TODO: XML+
         /// <summary>
         /// Конструктор по умолчанию для сериализации.
         /// </summary>
@@ -102,7 +101,6 @@
                    $"площадь = {CalculateArea().ToString(DoubleFormat)}";
         }
 
-        //TODO: XML+
         /// <summary>
         /// Возвращает тип фигуры.
         /// </summary>
