@@ -70,7 +70,6 @@ namespace Model
         /// <returns>Строка с информацией о фигуре.</returns>
         public abstract string GetInfo();
 
-        //TODO: XML+
         /// <summary>
         /// Возвращает тип фигуры.
         /// </summary>
