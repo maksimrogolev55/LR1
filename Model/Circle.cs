@@ -75,7 +75,6 @@ namespace Model
                    $"площадь = {CalculateArea().ToString(DoubleFormat)}";
         }
 
-        //TODO: XML+
         /// <summary>
         /// Возвращает тип фигуры.
         /// </summary>
