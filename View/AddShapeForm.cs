@@ -44,20 +44,50 @@ namespace View
             {
                 if (_radioButtonCircle.Checked)
                 {
-                    double radius = ParseDouble(_textBoxParameterOne.Text);
+                    if (!double.TryParse(_textBoxParameterOne.Text.Replace('.', ','), out double radius))
+                    {
+                        MessageBox.Show("Некорректное значение поля «Радиус».\nВведите положительное число.",
+                            "Некорректный ввод", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     CreatedShape = new Circle(radius);
                 }
                 else if (_radioButtonRectangle.Checked)
                 {
-                    double width = ParseDouble(_textBoxParameterOne.Text);
-                    double height = ParseDouble(_textBoxParameterTwo.Text);
+                    if (!double.TryParse(_textBoxParameterOne.Text.Replace('.', ','), out double width))
+                    {
+                        MessageBox.Show("Некорректное значение поля «Ширина».\nВведите положительное число.",
+                            "Некорректный ввод", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    if (!double.TryParse(_textBoxParameterTwo.Text.Replace('.', ','), out double height))
+                    {
+                        MessageBox.Show("Некорректное значение поля «Высота».\nВведите положительное число.",
+                            "Некорректный ввод", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     CreatedShape = new Model.Rectangle(width, height);
                 }
                 else
                 {
-                    double a = ParseDouble(_textBoxParameterOne.Text);
-                    double b = ParseDouble(_textBoxParameterTwo.Text);
-                    double c = ParseDouble(_textBoxParameterThree.Text);
+                    if (!double.TryParse(_textBoxParameterOne.Text.Replace('.', ','), out double a))
+                    {
+                        MessageBox.Show("Некорректное значение поля «Сторона A».\nВведите положительное число.",
+                            "Некорректный ввод", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    if (!double.TryParse(_textBoxParameterTwo.Text.Replace('.', ','), out double b))
+                    {
+                        MessageBox.Show("Некорректное значение поля «Сторона B».\nВведите положительное число.",
+                            "Некорректный ввод", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    if (!double.TryParse(_textBoxParameterThree.Text.Replace('.', ','), out double c))
+                    {
+                        MessageBox.Show("Некорректное значение поля «Сторона C».\nВведите положительное число.",
+                            "Некорректный ввод", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     CreatedShape = new Triangle(a, b, c);
                 }
 
@@ -67,17 +97,11 @@ namespace View
                 _textBoxParameterTwo.Clear();
                 _textBoxParameterThree.Clear();
                 _radioButtonCircle.Checked = true;
-
                 RadioButtonCircleCheckedChanged(null, null);
             }
             catch (ArgumentException ex)
             {
                 MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка ввода: {ex.Message}", "Ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

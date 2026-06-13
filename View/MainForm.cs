@@ -141,6 +141,13 @@ namespace View
         /// <param name="e">Аргументы события.</param>
         private void ButtonSaveClick(object sender, EventArgs e)
         {
+            if (_shapes.Count == 0)
+            {
+                MessageBox.Show("Список фигур пуст.",
+                    "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             using (SaveFileDialog saveDialog = new SaveFileDialog())
             {
                 saveDialog.Filter = "Файлы фигур (*.shp)|*.shp";
