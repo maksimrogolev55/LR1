@@ -53,10 +53,7 @@ namespace Model
         /// <summary>
         /// Проверяет корректность параметров фигуры.
         /// </summary>
-        public virtual void Validate() 
-        {
-            return;
-        }
+        public abstract void Validate();
 
         /// <summary>
         /// Абстрактный метод вычисления площади.
