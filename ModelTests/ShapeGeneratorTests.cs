@@ -62,6 +62,8 @@ namespace ModelTests
                 Assert.IsNotNull(shape);
                 Assert.IsInstanceOf<ShapeBase>(shape);
 
+                //TODO: {}
+                //TODO: switch-case
                 if (shape is Circle)    hasCircle    = true;
                 if (shape is Rectangle) hasRectangle = true;
                 if (shape is Triangle)  hasTriangle  = true;

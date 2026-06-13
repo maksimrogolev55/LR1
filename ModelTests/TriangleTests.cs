@@ -180,10 +180,12 @@ namespace ModelTests
         public void ValidateWithInvalidSideAThrowsArgumentException(
             double invalidSideA)
         {
-            var triangle = new Triangle();
-            triangle.SideA = invalidSideA;
-            triangle.SideB = 4.0;
-            triangle.SideC = 5.0;
+            var triangle = new Triangle
+            {
+                SideA = invalidSideA,
+                SideB = 4.0,
+                SideC = 5.0
+            };
             Assert.Throws<ArgumentException>(() => triangle.Validate());
         }
 
@@ -200,10 +202,12 @@ namespace ModelTests
         public void ValidateWithInvalidSideBThrowsArgumentException(
             double invalidSideB)
         {
-            var triangle = new Triangle();
-            triangle.SideA = 3.0;
-            triangle.SideB = invalidSideB;
-            triangle.SideC = 5.0;
+            var triangle = new Triangle
+            {
+                SideA = 3.0,
+                SideB = invalidSideB,
+                SideC = 5.0
+            };
             Assert.Throws<ArgumentException>(() => triangle.Validate());
         }
 
@@ -220,10 +224,12 @@ namespace ModelTests
         public void ValidateWithInvalidSideCThrowsArgumentException(
             double invalidSideC)
         {
-            var triangle = new Triangle();
-            triangle.SideA = 3.0;
-            triangle.SideB = 4.0;
-            triangle.SideC = invalidSideC;
+            var triangle = new Triangle
+            {
+                SideA = 3.0,
+                SideB = 4.0,
+                SideC = invalidSideC
+            };
             Assert.Throws<ArgumentException>(() => triangle.Validate());
         }
 
